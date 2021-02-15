@@ -39,6 +39,20 @@ export const COUNTRY_UPDATE_ITEM = "COUNTRY_UPDATE_ITEM";
 export const COUNTRY_UPDATE_ITEM_SUCCESS = "COUNTRY_UPDATE_ITEM_SUCCESS";
 export const COUNTRY_UPDATE_ITEM_ERROR = "COUNTRY_UPDATE_ITEM_ERROR";
 export const COUNTRY_DELETE_CHECK = "COUNTRY_DELETE_CHECK";
+/*Country*/
+export const CITY_GET_LIST = "CITY_GET_LIST";
+export const CITY_GET_LIST_SUCCESS = "CITY_GET_LIST_SUCCESS";
+export const CITY_GET_LIST_ERROR = "CITY_GET_LIST_ERROR";
+export const CITY_ADD_ITEM = "CITY_ADD_ITEM";
+export const CITY_ADD_ITEM_SUCCESS = "CITY_ADD_ITEM_SUCCESS";
+export const CITY_ADD_ITEM_ERROR = "CITY_ADD_ITEM_ERROR";
+export const CITY_DELETE_ITEM = "CITY_DELETE_ITEM";
+export const CITY_DELETE_SUCCESS = "CITY_DELETE_SUCCESS";
+export const CITY_DELETE_ITEM_ERROR = "CITY_DELETE_ITEM_ERROR";
+export const CITY_UPDATE_ITEM = "CITY_UPDATE_ITEM";
+export const CITY_UPDATE_ITEM_SUCCESS = "CITY_UPDATE_ITEM_SUCCESS";
+export const CITY_UPDATE_ITEM_ERROR = "CITY_UPDATE_ITEM_ERROR";
+export const CITY_DELETE_CHECK = "CITY_DELETE_CHECK";
 
 /* TODOAPP*/
 export const TODO_GET_LIST = "TODO_GET_LIST";
@@ -55,4 +69,5 @@ export const TODO_SELECTED_ITEMS_CHANGE = "TODO_SELECTED_ITEMS_CHANGE";
 export * from "./menu/actions";
 export * from "./settings/actions";
 export * from "./country/actions";
+export * from "./city/actions";
 export * from "./auth/actions";

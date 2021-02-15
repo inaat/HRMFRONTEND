@@ -7,7 +7,7 @@ import {
 } from "reactstrap";
 import DeleteConfirmModal from "./DeleteConfirmModal";
 import IntlMessages from "../../helpers/IntlMessages";
-import EditCountryModal from "./EditCountryModal";
+import EditCountryModal from "./EditCityModal";
 import { canEdit, canDelete } from "../../permission/permission";
 
 const ActionButton = (props) => {

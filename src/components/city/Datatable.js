@@ -13,7 +13,6 @@ const Datatable = ({ item }) => {
     show_pagination: true,
     pagination: "advance",
   };
-
   const columns = [
     {
       key: "country_name_arab",
@@ -21,13 +20,8 @@ const Datatable = ({ item }) => {
       sortable: true,
     },
     {
-      key: "capital_arab",
-      text: <IntlMessages id="country.capital_arab"></IntlMessages>,
-      sortable: true,
-    },
-    {
-      key: "nationality_arab",
-      text: <IntlMessages id="country.nationality_arab"></IntlMessages>,
+      key: "city_name_arab",
+      text: <IntlMessages id="city.city_name_arab"></IntlMessages>,
       sortable: true,
     },
     {
@@ -36,16 +30,20 @@ const Datatable = ({ item }) => {
       sortable: true,
     },
     {
-      key: "capital_eng",
-      text: <IntlMessages id="country.capital_eng"></IntlMessages>,
+      key: "city_name_eng",
+      text: <IntlMessages id="city.city_name_eng"></IntlMessages>,
       sortable: true,
     },
     {
-      key: "nationality_eng",
-      text: <IntlMessages id="country.nationality_eng"></IntlMessages>,
+      key: "region",
+      text: <IntlMessages id="city.region"></IntlMessages>,
       sortable: true,
     },
-
+    {
+      key: "ticket_value",
+      text: <IntlMessages id="city.ticket_value"></IntlMessages>,
+      sortable: true,
+    },
     {
       key: "action",
       text: "Action",
@@ -58,6 +56,7 @@ const Datatable = ({ item }) => {
       },
     },
   ];
+
   return (
     <Colxx xxs="12">
       <Card className="card d-flex mb-3">

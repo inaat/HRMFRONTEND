@@ -17,3 +17,21 @@ export function requestDeleteCountry(values) {
 export function requestUpdateCountry(values) {
   return axios.put(`${"country"}/${values.id}`, values);
 }
+
+export function requestGetCity() {
+  return axios.request({
+    method: "get",
+    url: "http://localhost:8000/api/city",
+  });
+}
+
+export function requestPostCity(values) {
+  return axios.post("city", values);
+}
+
+export function requestDeleteCity(values) {
+  return axios.delete(`${"city"}/${values.payload}`);
+}
+export function requestUpdateCity(values) {
+  return axios.put(`${"city"}/${values.id}`, values);
+}

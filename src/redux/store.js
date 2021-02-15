@@ -15,7 +15,6 @@ export function configureStore(initialState) {
     compose(applyMiddleware(...middlewares))
     // composeWithDevTools(applyMiddleware(...middlewares))
   );
-  console.log(store);
   sagaMiddleware.run(sagas);
 
   if (module.hot) {

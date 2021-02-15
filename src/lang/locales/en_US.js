@@ -76,4 +76,12 @@ module.exports = {
   "country.add-new-title": "Add New Country",
   "country.delete_country": "Delete Country",
   "country.update-title": "Update Country",
+  // City Table
+  "city.ticket": "Ticket Value",
+  "city.city_name_eng": "City Name In English",
+  "city.city_name_arab": "City Name In Arabic",
+  "city.is_capital": "Is Capital",
+  "city.ticket_value": "Ticket Value",
+  "city.region": "Region",
+  "city.add-new-title": "Add New City",
 };
