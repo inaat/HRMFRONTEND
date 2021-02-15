@@ -7,36 +7,60 @@ import {
   ModalBody,
   ModalFooter,
   Label,
+  FormGroup,
+  CustomInput,
 } from "reactstrap";
-import IntlMessages from "../../helpers/IntlMessages";
+import * as Yup from "yup";
+import { Formik, Form, Field } from "formik";
 import {
-  AvForm,
-  AvGroup,
-  AvInput,
-  AvFeedback,
-} from "availity-reactstrap-validation";
-import { updateCountryItem } from "../../redux/actions";
+  FormikReactSelect,
+  FormikCustomCheckbox,
+} from "../../containers/form-validations/FormikFields";
+import IntlMessages from "../../helpers/IntlMessages";
+import { updateCityItem } from "../../redux/actions";
+const citySchema = Yup.object().shape({
+  city_name_eng: Yup.string().required("City name in english is required!"),
+  city_name_arab: Yup.string().required("City name in arabic is required!"),
 
-class EditCountryModal extends Component {
+  country: Yup.object()
+    .shape({
+      label: Yup.string().required(),
+      value: Yup.string().required(),
+    })
+    .nullable()
+    .required("Country is required!"),
+});
+class EditCityModal extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.validate = this.validate.bind(this);
   }
-  handleSubmit(event, errors, values) {
-    if (errors.length === 0) {
-      const newItem = {
-        country_name_arab: values.country_name_arab,
-        nationality_arab: values.nationality_arab,
-        country_name_eng: values.country_name_eng,
-        nationality_eng: values.nationality_eng,
-        id: this.props.endpoint.id,
-      };
-      this.props.updateCountryItem(newItem);
-    }
+  handleSubmit(values) {
+    values["id"] = this.props.endpoint.id;
+    this.props.updateCityItem(values);
   }
+  validate(values) {
+    let errors = {};
 
+    if (values.is_capital) {
+      if (values.country.value !== this.props.endpoint.country_id) {
+        const data = this.props.cityApp.cityItems.filter((x) => {
+          if (x.country_id === values.country.value && x.is_capital === 1) {
+            return x;
+          }
+        });
+        if (data.length !== 0) {
+          errors.is_capital = "This Country have alerdy Captail City";
+        }
+      }
+    }
+    return errors;
+  }
   render() {
     const { modalOpen, toggleModal } = this.props;
+    const { countryItems } = this.props.countryApp;
+
     return (
       <Modal
         isOpen={modalOpen}
@@ -45,94 +69,150 @@ class EditCountryModal extends Component {
         backdrop="static"
       >
         <ModalHeader toggle={toggleModal}>
-          <IntlMessages id="country.update-title" />
+          <IntlMessages id="city.add-new-title" />
         </ModalHeader>
-        <AvForm
-          className="av-tooltip tooltip-label-right"
+        <Formik
+          initialValues={{
+            country: {
+              value: this.props.endpoint.country_id,
+              label:
+                this.props.endpoint.country_name_eng +
+                "/" +
+                this.props.endpoint.country_name_arab,
+            },
+            city_name_eng: this.props.endpoint.city_name_eng,
+            city_name_arab: this.props.endpoint.city_name_arab,
+            region: this.props.endpoint.region,
+            ticket_value: this.props.endpoint.ticket_value,
+            is_capital: this.props.endpoint.is_capital,
+          }}
+          validationSchema={citySchema}
+          validate={this.validate}
           onSubmit={this.handleSubmit}
         >
-          <ModalBody>
-            <AvGroup>
-              <Label className="">
-                <IntlMessages id="country.country_name_arab" />
-              </Label>
-              <AvInput
-                required
-                type="text"
-                value={this.props.endpoint.country_name_arab}
-                name="country_name_arab"
-              />
-              <AvFeedback>
-                <IntlMessages id="country.country_name_arab" />
-                <IntlMessages id="general.required" />
-              </AvFeedback>
-            </AvGroup>
+          {({
+            setFieldValue,
+            setFieldTouched,
+            handleChange,
+            handleBlur,
+            values,
+            errors,
+            touched,
+          }) => (
+            <Form className="av-tooltip tooltip-label-right">
+              <ModalBody>
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="country.countries" />
+                  </Label>
+                  <FormikReactSelect
+                    name="country"
+                    id="country"
+                    value={values.country}
+                    options={countryItems.map((value) => ({
+                      value: value.id,
+                      label:
+                        value.country_name_eng + "/" + value.country_name_arab,
+                    }))}
+                    onChange={setFieldValue}
+                    onBlur={setFieldTouched}
+                  />
+                  {errors.country && touched.country ? (
+                    <div className="invalid-feedback d-block">
+                      {errors.country}
+                    </div>
+                  ) : null}
+                </FormGroup>
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="city.city_name_eng" />
+                  </Label>
+                  <Field
+                    className="form-control"
+                    value={values.city_name_eng}
+                    name="city_name_eng"
+                  />
+                  {errors.city_name_eng && touched.city_name_eng && (
+                    <div className="invalid-feedback d-block">
+                      {errors.city_name_eng}
+                    </div>
+                  )}
+                </FormGroup>
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="city.city_name_arab" />
+                  </Label>
+                  <Field
+                    className="form-control"
+                    value={values.city_name_arab}
+                    name="city_name_arab"
+                  />
+                  {errors.city_name_arab && touched.city_name_arab && (
+                    <div className="invalid-feedback d-block">
+                      {errors.city_name_arab}
+                    </div>
+                  )}
+                </FormGroup>
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="city.region" />
+                  </Label>
+                  <Field className="form-control" name="region" />
+                </FormGroup>
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="city.ticket_value" />
+                  </Label>
+                  <Field
+                    className="form-control"
+                    type="number"
+                    name="ticket_value"
+                    value={values.ticket_value}
+                  />
+                </FormGroup>
 
-            <AvGroup>
-              <Label className="">
-                <IntlMessages id="country.nationality_arab" />
-              </Label>
-              <AvInput
-                required
-                type="text"
-                value={this.props.endpoint.nationality_arab}
-                name="nationality_arab"
-              />
-              <AvFeedback>
-                <IntlMessages id="country.nationality_arab" />
-                <IntlMessages id="general.required" />
-              </AvFeedback>
-            </AvGroup>
-            <AvGroup>
-              <Label className="">
-                <IntlMessages id="country.country_name_eng" />
-              </Label>
-              <AvInput
-                required
-                type="text"
-                value={this.props.endpoint.country_name_eng}
-                name="country_name_eng"
-              />
-              <AvFeedback>
-                <IntlMessages id="country.country_name_eng" />
-                <IntlMessages id="general.required" />
-              </AvFeedback>
-            </AvGroup>
-            <AvGroup>
-              <Label className="">
-                <IntlMessages id="country.nationality_eng" />
-              </Label>
-              <AvInput
-                required
-                type="text"
-                name="nationality_eng"
-                value={this.props.endpoint.nationality_eng}
-              />
-              <AvFeedback>
-                <IntlMessages id="country.nationality_eng" />
-                <IntlMessages id="general.required" />
-              </AvFeedback>
-            </AvGroup>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="danger" onClick={toggleModal}>
-              <IntlMessages id="general.cancel" />
-            </Button>
-            <Button color="primary">
-              <IntlMessages id="general.update" />
-            </Button>
-          </ModalFooter>
-        </AvForm>
+                <FormGroup className="error-l-150">
+                  <Label className="d-block">
+                    <IntlMessages id="city.is_capital" />
+                  </Label>
+                  <FormikCustomCheckbox
+                    id="is_capital"
+                    name="is_capital"
+                    value={values.is_capital}
+                    label={<IntlMessages id="city.is_capital" />}
+                    onChange={setFieldValue}
+                    onBlur={setFieldTouched}
+                    modal={true}
+                  />
+                  {errors.is_capital && touched.is_capital ? (
+                    <div className="invalid-feedback d-block">
+                      {errors.is_capital}
+                    </div>
+                  ) : null}
+                </FormGroup>
+              </ModalBody>
+              <ModalFooter>
+                <Button color="danger" onClick={toggleModal}>
+                  <IntlMessages id="general.cancel" />
+                </Button>
+                <Button color="primary" type="submit">
+                  <IntlMessages id="general.save" />
+                </Button>
+              </ModalFooter>
+            </Form>
+          )}
+        </Formik>
       </Modal>
     );
   }
 }
 
-const mapStateToProps = ({ countryApp }) => {
+const mapStateToProps = ({ countryApp, cityApp }) => {
   return {
     countryApp,
+    cityApp,
   };
 };
 export default connect(mapStateToProps, {
-  updateCountryItem,
-})(EditCountryModal);
+  updateCityItem,
+})(EditCityModal);

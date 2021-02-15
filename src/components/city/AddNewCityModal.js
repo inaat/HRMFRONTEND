@@ -35,19 +35,28 @@ class AddNewCityModal extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.validateIsCpatial = this.validateIsCpatial.bind(this);
+    this.validate = this.validate.bind(this);
   }
 
   handleSubmit(values) {
     this.props.addCityItem(values);
     this.props.toggleModal();
   }
-  validateIsCpatial(value) {
-    let error;
-    if (value) {
-      error = "Please enter your name";
+
+  validate(values) {
+    let errors = {};
+
+    if (values.is_capital) {
+      const data = this.props.cityApp.cityItems.filter((x) => {
+        if (x.country_id === values.country.value && x.is_capital === 1) {
+          return x;
+        }
+      });
+      if (data.length !== 0) {
+        errors.is_capital = "This Country have alerdy Captail City";
+      }
     }
-    return error;
+    return errors;
   }
   render() {
     const { modalOpen, toggleModal } = this.props;
@@ -72,6 +81,7 @@ class AddNewCityModal extends Component {
             is_capital: false,
           }}
           validationSchema={citySchema}
+          validate={this.validate}
           onSubmit={this.handleSubmit}
         >
           {({
@@ -153,7 +163,6 @@ class AddNewCityModal extends Component {
                     id="is_capital"
                     type="checkbox"
                     name="is_capital"
-                    validate={this.validateIsCpatial}
                     value={values.is_capital}
                     label={<IntlMessages id="city.is_capital" />}
                     onChange={handleChange}

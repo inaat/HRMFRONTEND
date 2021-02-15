@@ -146,19 +146,35 @@ export const FormikCustomCheckbox = (props) => {
   const handleBlur = () => {
     props.onBlur(props.name, true);
   };
-  return (
-    <CustomInput
-      type="checkbox"
-      id={props.name}
-      name={props.name}
-      label={props.label}
-      onChange={handleChange}
-      onBlur={handleBlur}
-      checked={props.value}
-      disabled={props.disabled}
-      inline
-    />
-  );
+  if (props.modal) {
+    return (
+      <CustomInput
+        type="checkbox"
+        id={props.name}
+        name={props.name}
+        label={props.label}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        defaultChecked={props.value}
+        disabled={props.disabled}
+        inline
+      />
+    );
+  } else {
+    return (
+      <CustomInput
+        type="checkbox"
+        id={props.name}
+        name={props.name}
+        label={props.label}
+        onChange={handleChange}
+        onBlur={handleBlur}
+        Checked={props.value}
+        disabled={props.disabled}
+        inline
+      />
+    );
+  }
 };
 
 export class FormikRadioButtonGroup extends React.Component {

@@ -31,7 +31,6 @@ function* getcityListItems() {
     const response = yield call(requestGetCity);
     yield put(getCityListSuccess(response.data.data));
   } catch (error) {
-    console.log(error);
     yield put(getCityListError(error.message));
   }
 }
@@ -94,8 +93,19 @@ function* deletecityItem(payload) {
   }
 }
 function* updatecityItem({ payload }) {
+  console.log(payload);
   try {
-    const result = yield call(requestUpdateCity, payload);
+    const cityupdateItem = {
+      country_id: payload.country.value,
+      city_name_eng: payload.city_name_eng,
+      city_name_arab: payload.city_name_arab,
+      region: payload.region,
+      ticket_value: payload.ticket_value,
+      is_capital: payload.is_capital,
+      id: payload.id,
+    };
+    const result = yield call(requestUpdateCity, cityupdateItem);
+    result.data["country"] = payload.country;
     NotificationManager.success(
       "This is a notification!",
       "Update",

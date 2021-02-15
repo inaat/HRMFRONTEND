@@ -7,7 +7,7 @@ import {
 } from "reactstrap";
 import DeleteConfirmModal from "./DeleteConfirmModal";
 import IntlMessages from "../../helpers/IntlMessages";
-import EditCountryModal from "./EditCityModal";
+import EditCityModal from "./EditCityModal";
 import { canEdit, canDelete } from "../../permission/permission";
 
 const ActionButton = (props) => {
@@ -63,7 +63,7 @@ const ActionButton = (props) => {
         endpoint={props.endpoint}
         id={props.id}
       />
-      <EditCountryModal
+      <EditCityModal
         toggleModal={editToggleModal}
         modalOpen={editModalOpen}
         endpoint={props.endpoint}

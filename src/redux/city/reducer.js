@@ -45,6 +45,7 @@ export default (state = INIT_STATE, action) => {
       item.id = action.payload.id;
       item.city_name_eng = action.payload.city_name_eng;
       item.city_name_arab = action.payload.city_name_arab;
+      item.is_capital = action.payload.is_capital;
       item.region = action.payload.region;
       item.ticket_value = action.payload.ticket_value;
       item.country_name_arab = fields[1];
@@ -89,14 +90,19 @@ export default (state = INIT_STATE, action) => {
         cityloading: false,
       };
     case CITY_UPDATE_ITEM_SUCCESS:
+      var country = action.payload.country.label;
+      const updatefields = country.split("/");
       const con = state.cityItems.map((item) => {
         if (item.id === action.payload.id) {
           return {
             ...item,
-            CITY_name_arab: action.payload.CITY_name_arab,
-            CITY_name_eng: action.payload.CITY_name_eng,
-            nationality_arab: action.payload.nationality_arab,
-            nationality_eng: action.payload.nationality_eng,
+            city_name_arab: action.payload.city_name_arab,
+            city_name_eng: action.payload.city_name_eng,
+            region: action.payload.region,
+            ticket_value: action.payload.ticket_value,
+            country_name_arab: updatefields[1],
+            country_name_eng: updatefields[0],
+            is_capital: action.payload.is_capital,
           };
         }
         return item;

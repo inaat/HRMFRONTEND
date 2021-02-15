@@ -31,7 +31,6 @@ function* getCountryListItems() {
     const response = yield call(requestGetCountry);
     yield put(getCountryListSuccess(response.data.data));
   } catch (error) {
-    console.log(error);
     yield put(getCountryListError(error.message));
   }
 }
