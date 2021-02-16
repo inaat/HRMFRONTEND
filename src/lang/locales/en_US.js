@@ -77,11 +77,47 @@ module.exports = {
   "country.delete_country": "Delete Country",
   "country.update-title": "Update Country",
   // City Table
+  "city.city": "Cities",
   "city.ticket": "Ticket Value",
+  "city.city_Info": "Cities Information",
+  "city.update-title": "Update City",
   "city.city_name_eng": "City Name In English",
   "city.city_name_arab": "City Name In Arabic",
   "city.is_capital": "Is Capital",
   "city.ticket_value": "Ticket Value",
   "city.region": "Region",
   "city.add-new-title": "Add New City",
+  // Religion Table
+  "religion.religion": "Religions",
+  "religion.religion_Info": "Religions Information",
+  "religion.update-title": "Update Religion",
+  "religion.religion_name_eng": "Religion Name In English",
+  "religion.religion_name_arab": "Religion Name In Arabic",
+  "religion.add-new-title": "Add New Religion",
+  // Evalution Compentencies Table
+  "evalutioncompentencies.evalutioncompentencies": "Evaluation/Compentencies",
+  "evaluationcompentencies.evaluationcompentencies_Info":
+    "Evalution Compentencies Information",
+  "evaluationcompentencies.update-title": "Update Evaluation Compentencies",
+  "evaluationcompentencies.evaluation_desc_eng":
+    "Evaluation Compentencies Name In English",
+  "evaluationcompentencies.evaluation_desc_arab":
+    "Evaluation Compentencies Name In Arabic",
+  "evaluationcompentencies.add-new-title": "Add New Evaluation Compentencies",
+  //Education/Training/Type
+  "education.education": "Education/Training/Type",
+  "education.education_Info": "Education Training Type/ Information",
+  "education.update-title": "Education Training Type",
+  "education.education_desc_eng": "Education Training Type Name In English",
+  "education.education_desc_arab": "Education Training Type Name In Arabic",
+  "education.add-new-title": "Add New Education Training Type",
+  //Education/Training/Type
+  "documenttype.documenttype": "Document Types",
+  "documenttype.documenttype_Info": "Document Type/ Information",
+  "documenttype.update-title": "Document Type ",
+  "documenttype.documenttype_desc_eng":
+    "documenttype Training Type Name In English",
+  "documenttype.documenttype_desc_arab":
+    "documenttype Training Type Name In Arabic",
+  "documenttype.add-new-title": "Add New document Training Type",
 };

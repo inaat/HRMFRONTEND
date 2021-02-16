@@ -60,18 +60,19 @@ class AddNewCityModal extends Component {
   }
   render() {
     const { modalOpen, toggleModal } = this.props;
-    const { countryItems } = this.props.countryApp;
+    const { countryItems, loading, error } = this.props.countryApp;
     return (
       <Modal
         isOpen={modalOpen}
         toggle={toggleModal}
-        wrapClassName="modal-right"
+        wrapClassName="modal-center"
         backdrop="static"
       >
         <ModalHeader toggle={toggleModal}>
           <IntlMessages id="city.add-new-title" />
         </ModalHeader>
         <Formik
+          key="1"
           initialValues={{
             country: null,
             city_name_eng: "",
@@ -99,18 +100,33 @@ class AddNewCityModal extends Component {
                   <Label>
                     <IntlMessages id="country.countries" />
                   </Label>
-                  <FormikReactSelect
-                    name="country"
-                    id="country"
-                    value={values.country}
-                    options={countryItems.map((value) => ({
-                      value: value.id,
-                      label:
-                        value.country_name_eng + "/" + value.country_name_arab,
-                    }))}
-                    onChange={setFieldValue}
-                    onBlur={setFieldTouched}
-                  />
+                  {error ? (
+                    <div key="0" style={{ color: "red" }}>
+                      ERROR: {error}
+                    </div>
+                  ) : (
+                    [
+                      loading ? (
+                        <FormikReactSelect
+                          key="2"
+                          name="country"
+                          id="country"
+                          value={values.country}
+                          options={countryItems.map((value) => ({
+                            value: value.id,
+                            label:
+                              value.country_name_eng +
+                              "/" +
+                              value.country_name_arab,
+                          }))}
+                          onChange={setFieldValue}
+                          onBlur={setFieldTouched}
+                        />
+                      ) : (
+                        <div key="2" className="loading" />
+                      ),
+                    ]
+                  )}
                   {errors.country && touched.country ? (
                     <div className="invalid-feedback d-block">
                       {errors.country}
@@ -156,17 +172,17 @@ class AddNewCityModal extends Component {
                   />
                 </FormGroup>
                 <FormGroup className="error-l-150">
-                  <Label>
+                  <Label className="d-block">
                     <IntlMessages id="city.is_capital" />
                   </Label>
-                  <CustomInput
+                  <FormikCustomCheckbox
                     id="is_capital"
-                    type="checkbox"
                     name="is_capital"
                     value={values.is_capital}
                     label={<IntlMessages id="city.is_capital" />}
-                    onChange={handleChange}
-                    onBlur={handleBlur}
+                    onChange={setFieldValue}
+                    onBlur={setFieldTouched}
+                    modal={true}
                   />
                   {errors.is_capital && touched.is_capital ? (
                     <div className="invalid-feedback d-block">

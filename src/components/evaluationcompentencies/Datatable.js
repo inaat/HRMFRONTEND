@@ -14,20 +14,22 @@ const Datatable = ({ item }) => {
     pagination: "advance",
   };
   const columns = [
-   
     {
-      key: "religion_name_arab",
-      text: <IntlMessages id="religion.religion_name_arab"></IntlMessages>,
+      key: "evaluation_desc_eng",
+      text: (
+        <IntlMessages id="evaluationcompentencies.evaluation_desc_eng"></IntlMessages>
+      ),
       sortable: true,
     },
- 
 
     {
-      key: "religion_name_eng",
-      text: <IntlMessages id="religion.religion_name_eng"></IntlMessages>,
+      key: "evaluation_desc_arab",
+      text: (
+        <IntlMessages id="evaluationcompentencies.evaluation_desc_arab"></IntlMessages>
+      ),
       sortable: true,
     },
-  
+
     {
       key: "action",
       text: "Action",

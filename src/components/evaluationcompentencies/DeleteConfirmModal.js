@@ -4,7 +4,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 import IntlMessages from "../../helpers/IntlMessages";
 
-import { deleteReligionItem } from "../../redux/actions";
+import { deleteEvaluationcompentenciesItem } from "../../redux/actions";
 
 class DeleteConfirmModal extends Component {
   constructor(props) {
@@ -12,7 +12,7 @@ class DeleteConfirmModal extends Component {
   }
 
   deleteNetItem = () => {
-    this.props.deleteReligionItem(this.props.id);
+    this.props.deleteEvaluationcompentenciesItem(this.props.id);
     this.props.toggleModal();
   };
 
@@ -65,11 +65,11 @@ class DeleteConfirmModal extends Component {
   }
 }
 
-const mapStateToProps = ({ religionApp }) => {
+const mapStateToProps = ({ evaluationcompentenciesApp }) => {
   return {
-    religionApp,
+    evaluationcompentenciesApp,
   };
 };
 export default connect(mapStateToProps, {
-  deleteReligionItem,
+  deleteEvaluationcompentenciesItem,
 })(DeleteConfirmModal);

@@ -8,32 +8,34 @@ import {
   ModalFooter,
   Label,
   FormGroup,
+  CustomInput,
 } from "reactstrap";
 import * as Yup from "yup";
 import { Formik, Form, Field } from "formik";
+
 import IntlMessages from "../../helpers/IntlMessages";
-import { updateReligionItem } from "../../redux/actions";
-const religionSchema = Yup.object().shape({
-  religion_name_eng: Yup.string().required(
-    "Religion name in english is required!"
+import { addEducationItem } from "../../redux/actions";
+const educationSchema = Yup.object().shape({
+  education_desc_eng: Yup.string().required(
+    "Education Description in english is required!"
   ),
-  religion_name_arab: Yup.string().required(
-    "Religion name in arabic is required!"
+  education_desc_arab: Yup.string().required(
+    "Education Description in arabic is required!"
   ),
 });
-class EditReligionModal extends Component {
+class AddNewEducationModal extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleSubmit(values) {
-    values["id"] = this.props.endpoint.id;
-    this.props.updateReligionItem(values);
+    this.props.addEducationItem(values);
+    this.props.toggleModal();
   }
 
   render() {
     const { modalOpen, toggleModal } = this.props;
-
     return (
       <Modal
         isOpen={modalOpen}
@@ -42,48 +44,50 @@ class EditReligionModal extends Component {
         backdrop="static"
       >
         <ModalHeader toggle={toggleModal}>
-          <IntlMessages id="religion.update-title" />
+          <IntlMessages id="education.add-new-title" />
         </ModalHeader>
         <Formik
+          key="1"
           initialValues={{
-            religion_name_eng: this.props.endpoint.religion_name_eng,
-            religion_name_arab: this.props.endpoint.religion_name_arab,
+            education_desc_eng: "",
+            education_desc_arab: "",
           }}
-          validationSchema={religionSchema}
+          validationSchema={educationSchema}
           onSubmit={this.handleSubmit}
         >
-          {({ values, errors, touched }) => (
+          {({
+            setFieldValue,
+            setFieldTouched,
+            handleChange,
+            handleBlur,
+            values,
+            errors,
+            touched,
+          }) => (
             <Form className="av-tooltip tooltip-label-right">
               <ModalBody>
                 <FormGroup>
                   <Label>
-                    <IntlMessages id="religion.religion_name_eng" />
+                    <IntlMessages id="education.education_desc_eng" />
                   </Label>
-                  <Field
-                    className="form-control"
-                    value={values.religion_name_eng}
-                    name="religion_name_eng"
-                  />
-                  {errors.religion_name_eng && touched.religion_name_eng && (
+                  <Field className="form-control" name="education_desc_eng" />
+                  {errors.education_desc_eng && touched.education_desc_eng && (
                     <div className="invalid-feedback d-block">
-                      {errors.religion_name_eng}
+                      {errors.education_desc_eng}
                     </div>
                   )}
                 </FormGroup>
                 <FormGroup>
                   <Label>
-                    <IntlMessages id="religion.religion_name_arab" />
+                    <IntlMessages id="education.education_desc_arab" />
                   </Label>
-                  <Field
-                    className="form-control"
-                    value={values.religion_name_arab}
-                    name="religion_name_arab"
-                  />
-                  {errors.religion_name_arab && touched.religion_name_arab && (
-                    <div className="invalid-feedback d-block">
-                      {errors.religion_name_arab}
-                    </div>
-                  )}
+                  <Field className="form-control" name="education_desc_arab" />
+                  {errors.education_desc_arab &&
+                    touched.education_desc_arab && (
+                      <div className="invalid-feedback d-block">
+                        {errors.education_desc_arab}
+                      </div>
+                    )}
                 </FormGroup>
               </ModalBody>
               <ModalFooter>
@@ -101,14 +105,11 @@ class EditReligionModal extends Component {
     );
   }
 }
-
-const mapStateToProps = ({ countryApp, cityApp, religionApp }) => {
+const mapStateToProps = ({ educationTrainingTypeApp }) => {
   return {
-    countryApp,
-    cityApp,
-    religionApp,
+    educationTrainingTypeApp,
   };
 };
 export default connect(mapStateToProps, {
-  updateReligionItem,
-})(EditReligionModal);
+  addEducationItem,
+})(AddNewEducationModal);

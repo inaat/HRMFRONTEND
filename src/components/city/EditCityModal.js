@@ -44,32 +44,32 @@ class EditCityModal extends Component {
     let errors = {};
 
     if (values.is_capital) {
-      if (values.country.value !== this.props.endpoint.country_id) {
-        const data = this.props.cityApp.cityItems.filter((x) => {
-          if (x.country_id === values.country.value && x.is_capital === 1) {
-            return x;
-          }
-        });
-        if (data.length !== 0) {
-          errors.is_capital = "This Country have alerdy Captail City";
+      // if (values.country.value !== this.props.endpoint.country_id) {
+      const data = this.props.cityApp.cityItems.filter((x) => {
+        if (x.country_id === values.country.value && x.is_capital === 1) {
+          return x;
         }
+      });
+      if (data.length !== 0) {
+        errors.is_capital = "This Country have alerdy Captail City";
       }
+      //}
     }
     return errors;
   }
   render() {
     const { modalOpen, toggleModal } = this.props;
-    const { countryItems } = this.props.countryApp;
+    const { countryItems, loading, error } = this.props.countryApp;
 
     return (
       <Modal
         isOpen={modalOpen}
         toggle={toggleModal}
-        wrapClassName="modal-right"
+        wrapClassName="modal-center"
         backdrop="static"
       >
         <ModalHeader toggle={toggleModal}>
-          <IntlMessages id="city.add-new-title" />
+          <IntlMessages id="city.update-title" />
         </ModalHeader>
         <Formik
           initialValues={{
@@ -105,18 +105,33 @@ class EditCityModal extends Component {
                   <Label>
                     <IntlMessages id="country.countries" />
                   </Label>
-                  <FormikReactSelect
-                    name="country"
-                    id="country"
-                    value={values.country}
-                    options={countryItems.map((value) => ({
-                      value: value.id,
-                      label:
-                        value.country_name_eng + "/" + value.country_name_arab,
-                    }))}
-                    onChange={setFieldValue}
-                    onBlur={setFieldTouched}
-                  />
+                  {error ? (
+                    <div key="0" style={{ color: "red" }}>
+                      ERROR: {error}
+                    </div>
+                  ) : (
+                    [
+                      loading ? (
+                        <FormikReactSelect
+                          key="edit"
+                          name="country"
+                          id="country"
+                          value={values.country}
+                          options={countryItems.map((value) => ({
+                            value: value.id,
+                            label:
+                              value.country_name_eng +
+                              "/" +
+                              value.country_name_arab,
+                          }))}
+                          onChange={setFieldValue}
+                          onBlur={setFieldTouched}
+                        />
+                      ) : (
+                        <div key="2" className="loading" />
+                      ),
+                    ]
+                  )}
                   {errors.country && touched.country ? (
                     <div className="invalid-feedback d-block">
                       {errors.country}
@@ -196,7 +211,7 @@ class EditCityModal extends Component {
                   <IntlMessages id="general.cancel" />
                 </Button>
                 <Button color="primary" type="submit">
-                  <IntlMessages id="general.save" />
+                  <IntlMessages id="general.update" />
                 </Button>
               </ModalFooter>
             </Form>

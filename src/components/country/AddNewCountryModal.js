@@ -41,7 +41,7 @@ class AddNewCountryModal extends Component {
       <Modal
         isOpen={modalOpen}
         toggle={toggleModal}
-        wrapClassName="modal-right"
+        wrapClassName="modal-center"
         backdrop="static"
       >
         <ModalHeader toggle={toggleModal}>

@@ -7,7 +7,7 @@ import {
 } from "reactstrap";
 import DeleteConfirmModal from "./DeleteConfirmModal";
 import IntlMessages from "../../helpers/IntlMessages";
-import EditReligionModal from "./EditReligionModal";
+import EditEducationModal from "./EditEducationModal";
 import { canEdit, canDelete } from "../../permission/permission";
 
 const ActionButton = (props) => {
@@ -19,7 +19,7 @@ const ActionButton = (props) => {
   const deleteToggleModal = () => setmodalOpen(!modalOpen);
   const editToggleModal = () => seteditModaldalOpen(!editModalOpen);
   const actions = (editToggleModal) => {
-    if (canEdit("religions")) {
+    if (canEdit("education_training_types")) {
       return (
         <DropdownItem>
           <a className="" onClick={editToggleModal}>
@@ -31,7 +31,7 @@ const ActionButton = (props) => {
     }
   };
   const action = (deleteToggleModal) => {
-    if (canDelete("religions")) {
+    if (canDelete("education_training_types")) {
       return (
         <DropdownItem>
           <a className="text-danger " onClick={deleteToggleModal}>
@@ -63,7 +63,7 @@ const ActionButton = (props) => {
         endpoint={props.endpoint}
         id={props.id}
       />
-      <EditReligionModal
+      <EditEducationModal
         toggleModal={editToggleModal}
         modalOpen={editModalOpen}
         endpoint={props.endpoint}

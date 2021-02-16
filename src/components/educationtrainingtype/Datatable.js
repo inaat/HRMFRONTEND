@@ -16,15 +16,15 @@ const Datatable = ({ item }) => {
   const columns = [
    
     {
-      key: "religion_name_arab",
-      text: <IntlMessages id="religion.religion_name_arab"></IntlMessages>,
+      key: "education_desc_arab",
+      text: <IntlMessages id="education.education_desc_arab"></IntlMessages>,
       sortable: true,
     },
  
 
     {
-      key: "religion_name_eng",
-      text: <IntlMessages id="religion.religion_name_eng"></IntlMessages>,
+      key: "education_desc_eng",
+      text: <IntlMessages id="education.education_desc_eng"></IntlMessages>,
       sortable: true,
     },
   
