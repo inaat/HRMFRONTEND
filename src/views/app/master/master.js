@@ -4,122 +4,127 @@ import { NavLink } from "react-router-dom";
 import Buttons from "../../../components/common/Button";
 import classnames from "classnames";
 import { injectIntl } from "react-intl";
-import EvaluationCompentenciesDataTable from "../../../components/evaluationcompentencies/Datatable";
+
 
 import { connect } from "react-redux";
 import IntlMessages from "../../../helpers/IntlMessages";
 import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 import {
-  getCountryList,
-  getCityList,
+ 
   getReligionList,
-  getEvaluationcompentenciesList,
-  getEducationList,
-  // getDocumenttypeList,
+  getDeductionList,
+  getModificationTypeList,
+  getCurrenciesTypeList,
+  getSectionList,
+  getCostCenterList,
+  getPercentageList,
 } from "../../../redux/actions";
-import AddNewCountryModal from "../../../components/country/AddNewCountryModal";
-import DataTable from "../../../components/country/Datatable";
-import CityDataTable from "../../../components/city/Datatable";
-import AddNewCityModal from "../../../components/city/AddNewCityModal";
+
 // Religion
 import ReligionDataTable from "../../../components/religion/Datatable";
 import AddNewReligionModal from "../../../components/religion/AddNewReligionModal";
-import AddNewevaluationcompentenciesModal from "../../../components/evaluationcompentencies/AddNewEvaluationcompentenciesModal";
-// education
+// deducation
+import DeductionDataTable from "../../../components/deduction/Datatable";
+import AddNewDeductionModal from "../../../components/deduction/AddNewDeductionModal";
+//  modification type
+import ModificationTypeDataTable from "../../../components/modification_type/Datatable";
+import AddNewModificationTypeModal from "../../../components/modification_type/AddNewModificationTypeModal";
+//  currencies type
+import CurrenciesTypeDataTable from "../../../components/currencies_type/Datatable";
+import AddNewCurrenciesTypeModal from "../../../components/currencies_type/AddNewCurrenciesTypeModal";
+//  section
+import SectionDataTable from "../../../components/section/Datatable";
+import AddNewSectionModal from "../../../components/section/AddNewSectionModal";
+//  cost center
+import CostCenterDataTable from "../../../components/costcenter/Datatable";
+import AddNewCostCenterModal from "../../../components/costcenter/AddNewCostCenterModal";
+//  cost center
+import PercentageDataTable from "../../../components/percentage/Datatable";
+import AddNewPercentageModal from "../../../components/percentage/AddNewPercentageModal";
 
-import EducationDataTable from "../../../components/educationtrainingtype/Datatable";
-import AddNewEducationModal from "../../../components/educationtrainingtype/AddNewEducationModal";
 
 class Master extends Component {
   constructor(props) {
     super(props);
     this.state = {
       dropdownSplitOpen: false,
-      countrymodalOpen: false,
-      citymodalOpen: false,
-      activeTab: "2",
       displayOptionsIsOpen: false,
+      activeTab: "7",
+      
       religionmodalOpen: false,
-      evaluationcompentenciesmodaOpen: false,
-      educationmodalOpen: false,
-      documenttypemodalOpen: false,
-      displayOptionsIsOpen: false,
+      deductionmodalOpen: false,
+      modificationtypemodalOpen: false,
+      currenciestypemodalOpen: false,
+      sectionmodalOpen: false,
+      costcentermodalOpen: false,
+      percentagemodalOpen: false,
     };
   }
   toggle = (tab) => {
     if (this.activeTab !== tab) this.setState({ activeTab: tab });
   };
   componentDidMount() {
-    this.props.getCountryList();
-    this.props.getCityList();
     this.props.getReligionList();
-    this.props.getEvaluationcompentenciesList();
-    this.props.getEducationList();
+    this.props.getDeductionList();
+    this.props.getModificationTypeList();
+    this.props.getCurrenciesTypeList();
+    this.props.getSectionList();
+    this.props.getCostCenterList();
+    this.props.getPercentageList();
   }
 
-  toggleModal = () => {
-    this.setState({
-      countrymodalOpen: !this.state.countrymodalOpen,
-    });
-  };
-  citytoggleModal = () => {
-    this.setState({
-      citymodalOpen: !this.state.citymodalOpen,
-    });
-  };
   religiontoggleModal = () => {
     this.setState({
       religionmodalOpen: !this.state.religionmodalOpen,
     });
   };
 
-  evaluationcompentenciestoggleModal = () => {
+  deductiontoggleModal = () => {
+   
     this.setState({
-      evaluationcompentenciesmodalOpen: !this.state
-        .evaluationcompentenciesmodalOpen,
+      deductionmodalOpen: !this.state.deductionmodalOpen,
     });
   };
-  educationtoggleModal = () => {
+  modificationtypetoggleModal = () => {
     this.setState({
-      educationmodalOpen: !this.state.educationmodalOpen,
+      modificationtypemodalOpen: !this.state.modificationtypemodalOpen,
+    });
+  };
+  currenciestypetoggleModal = () => {
+    this.setState({
+      currenciestypemodalOpen: !this.state.currenciestypemodalOpen,
     });
   };
 
-  documenttypetoggleModal = () => {
+  sectiontoggleModal = () => {
     this.setState({
-      documenttypemodalOpen: !this.state.documenttypemodalOpen,
+      sectionmodalOpen: !this.state.sectionmodalOpen,
     });
   };
+  costcentertoggleModal = () => {
+    this.setState({
+      costcentermodalOpen: !this.state.costcentermodalOpen,
+    });
+  };
+  percentagetoggleModal = () => {
+    this.setState({
+      percentagemodalOpen: !this.state.percentagemodalOpen,
+    });
+  };
+
   render() {
-    const { countryItems, loading, error } = this.props.countryApp;
-    const { cityItems, cityloading, cityerror } = this.props.cityApp;
-    const {
-      evaluationcompentenciesItems,
-      evaluationcompentenciesloading,
-      evaluationcompentencieserror,
-    } = this.props.evaluationcompentenciesApp;
-    const {
-      educationItems,
-      educationloading,
-      educationerror,
-    } = this.props.educationTrainingTypeApp;
 
-    const {
-      countrymodalOpen,
-      citymodalOpen,
-      religionmodalOpen,
-      evaluationcompentenciesmodalOpen,
-      educationmodalOpen,
-      documenttypemodalOpen,
-    } = this.state;
-    const {
-      religionItems,
-      religionloading,
-      religionerror,
-    } = this.props.religionApp;
-
-    return (
+    const {religionItems,religionloading,religionerror,} = this.props.religionApp;
+  const {deductionItems,deductionloading,deductionerror,} = this.props.deductionApp;
+  const {modificationtypeItems,modificationtypeloading, modificationtypeerror,} = this.props.modificationtypeApp;
+  const {currenciestypeItems,currenciestypeloading, currenciestypeerror,} = this.props.currenciestypeApp;
+  const {sectionItems,sectionloading, sectionerror,} = this.props.sectionApp;
+  const {costcenterItems,costcenterloading, costcentererror,} = this.props.costcenterApp;
+  const {percentageItems,percentageloading, percentageerror,} = this.props.percentageApp;
+  const {religionmodalOpen,deductionmodalOpen,modificationtypemodalOpen,currenciestypemodalOpen,sectionmodalOpen, costcentermodalOpen, percentagemodalOpen} = this.state;
+ 
+  return (
       <Fragment>
         <Row>
           <Colxx xxs="12">
@@ -135,8 +140,10 @@ class Master extends Component {
               role="tablist"
               aria-orientation="vertical"
             >
+             
               <NavLink
                 className={classnames({
+                  active: this.activeTab === "1",
                   "nav-link": true,
                   " mb-2": true,
                   "p-2": true,
@@ -149,13 +156,14 @@ class Master extends Component {
                 }}
                 to="#"
               >
-                <IntlMessages id="country.countries"></IntlMessages>
+                <IntlMessages id="religion.religion" />
               </NavLink>
+
+           
 
               <NavLink
                 className={classnames({
-                  active: this.activeTab === "2",
-
+                 
                   "nav-link": true,
                   " mb-2": true,
                   "p-2": true,
@@ -168,11 +176,12 @@ class Master extends Component {
                 }}
                 to="#"
               >
-                <IntlMessages id="city.city" />
+               Deduction
               </NavLink>
+
               <NavLink
                 className={classnames({
-                  active: this.activeTab === "3",
+                 
                   "nav-link": true,
                   " mb-2": true,
                   "p-2": true,
@@ -185,12 +194,12 @@ class Master extends Component {
                 }}
                 to="#"
               >
-                <IntlMessages id="religion.religion" />
+                Modification/Type
               </NavLink>
 
               <NavLink
                 className={classnames({
-                  active: this.activeTab === "4",
+                 
                   "nav-link": true,
                   " mb-2": true,
                   "p-2": true,
@@ -203,12 +212,13 @@ class Master extends Component {
                 }}
                 to="#"
               >
-                <IntlMessages id="evalutioncompentencies.evalutioncompentencies" />
+               Currencies/Type
               </NavLink>
 
+              
               <NavLink
                 className={classnames({
-                  active: this.activeTab === "5",
+                 
                   "nav-link": true,
                   " mb-2": true,
                   "p-2": true,
@@ -221,81 +231,55 @@ class Master extends Component {
                 }}
                 to="#"
               >
-                <IntlMessages id="education.education"></IntlMessages>
+               Sections
               </NavLink>
+
+              <NavLink
+                className={classnames({
+                 
+                  "nav-link": true,
+                  " mb-2": true,
+                  "p-2": true,
+                  shadow: true,
+                  "text-center": true,
+                  active: this.state.activeTab === "6",
+                })}
+                onClick={() => {
+                  this.toggle("6");
+                }}
+                to="#"
+              >
+               Cost Centers
+              </NavLink>
+
+              <NavLink
+                className={classnames({
+                 
+                  "nav-link": true,
+                  " mb-2": true,
+                  "p-2": true,
+                  shadow: true,
+                  "text-center": true,
+                  active: this.state.activeTab === "7",
+                })}
+                onClick={() => {
+                  this.toggle("7");
+                }}
+                to="#"
+              >
+              Percentages
+              </NavLink>
+
+
+
             </div>
           </Colxx>
           <Colxx xxs="12" xs="12" md="10" lg="10">
+            
+            
+
             <TabContent activeTab={this.state.activeTab}>
               <TabPane className="card  fade shadow   show  p-3" tabId="1">
-                <h4 className="font-italic mb-4">
-                  <IntlMessages id="country.nationality_Info"></IntlMessages>
-                </h4>
-                <div className="row">
-                  <div className="col-sm-6"></div>
-                  <div className="col-sm-6">
-                    <Buttons
-                      color="primary"
-                      size="lg"
-                      value={<IntlMessages id="general.add_new"></IntlMessages>}
-                      styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
-                      onClick={this.toggleModal}
-                    />
-                  </div>
-                </div>
-                <Row>
-                  {error ? (
-                    <div key="0" style={{ color: "red" }}>
-                      ERROR: {error}
-                    </div>
-                  ) : (
-                    [
-                      loading ? (
-                        <DataTable item={countryItems} key="1" />
-                      ) : (
-                        <div key="2" className="loading" />
-                      ),
-                    ]
-                  )}
-                </Row>
-              </TabPane>
-            </TabContent>
-            <TabContent activeTab={this.state.activeTab}>
-              <TabPane className="card  fade shadow   show  p-3" tabId="2">
-                <h4 className="font-italic mb-4">
-                  <IntlMessages id="city.city_Info"></IntlMessages>
-                </h4>
-                <div className="row">
-                  <div className="col-sm-6"></div>
-                  <div className="col-sm-6">
-                    <Buttons
-                      color="primary"
-                      size="lg"
-                      value={<IntlMessages id="general.add_new"></IntlMessages>}
-                      styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
-                      onClick={this.citytoggleModal}
-                    />
-                  </div>
-                </div>
-                <Row>
-                  {cityerror ? (
-                    <div key="0" style={{ color: "red" }}>
-                      ERROR: {cityerror}
-                    </div>
-                  ) : (
-                    [
-                      cityloading ? (
-                        <CityDataTable item={cityItems} key="1" />
-                      ) : (
-                        <div key="2" className="loading" />
-                      ),
-                    ]
-                  )}
-                </Row>
-              </TabPane>
-            </TabContent>
-            <TabContent activeTab={this.state.activeTab}>
-              <TabPane className="card  fade shadow   show  p-3" tabId="3">
                 <h4 className="font-italic mb-4">
                   <IntlMessages id="religion.religion_Info" />
                 </h4>
@@ -328,10 +312,83 @@ class Master extends Component {
                 </Row>
               </TabPane>
             </TabContent>
+
+           
+            <TabContent activeTab={this.state.activeTab}>
+              <TabPane className="card  fade shadow   show  p-3" tabId="2">
+                <h4 className="font-italic mb-4">
+                <IntlMessages id="deduction.deduction_Info" />
+                </h4>
+                <div className="row">
+                  <div className="col-sm-6"></div>
+                  <div className="col-sm-6">
+                    <Buttons
+                      color="primary"
+                      size="lg"
+                      value={<IntlMessages id="general.add_new"></IntlMessages>}
+                      styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
+                      onClick={this.deductiontoggleModal}
+                    />
+                  </div>
+                </div>
+                <Row>
+                  {deductionerror ? (
+                    <div key="0" style={{ color: "red" }}>
+                      ERROR: {deductionerror}
+                    </div>
+                  ) : (
+                    [
+                      deductionloading ? (
+                        <DeductionDataTable item={deductionItems} key="1" />
+                      ) : (
+                        <div key="2" className="loading" />
+                      ),
+                    ]
+                  )}
+                </Row>
+              </TabPane>
+            </TabContent>
+            
+            <TabContent activeTab={this.state.activeTab}>
+              <TabPane className="card  fade shadow   show  p-3" tabId="3">
+                <h4 className="font-italic mb-4">
+                  <IntlMessages id="modificationtypes.modificationtype_Info" />
+                </h4>
+                <div className="row">
+                  <div className="col-sm-6"></div>
+                  <div className="col-sm-6">
+                    <Buttons
+                      color="primary"
+                      size="lg"
+                      value={<IntlMessages id="general.add_new"></IntlMessages>}
+                      styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
+                      onClick={this.modificationtypetoggleModal}
+                    />
+                  </div>
+                </div>
+                <Row>
+                  {modificationtypeerror ? (
+                    <div key="0" style={{ color: "red" }}>
+                      ERROR: {modificationtypeerror}
+                    </div>
+                  ) : (
+                    [
+                      modificationtypeloading ? (
+                        <ModificationTypeDataTable item={modificationtypeItems} key="1" />
+                      ) : (
+                        <div key="2" className="loading" />
+                      ),
+                    ]
+                  )}
+                </Row>
+              </TabPane>
+            </TabContent>
+
+
             <TabContent activeTab={this.state.activeTab}>
               <TabPane className="card  fade shadow   show  p-3" tabId="4">
                 <h4 className="font-italic mb-4">
-                  <IntlMessages id="evaluationcompentencies.evaluationcompentencies_Info" />
+                  <IntlMessages id="currenciestypes.currenciestypes_Info" />
                 </h4>
                 <div className="row">
                   <div className="col-sm-6"></div>
@@ -341,22 +398,53 @@ class Master extends Component {
                       size="lg"
                       value={<IntlMessages id="general.add_new"></IntlMessages>}
                       styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
-                      onClick={this.evaluationcompentenciestoggleModal}
+                      onClick={this.currenciestypetoggleModal}
                     />
                   </div>
                 </div>
                 <Row>
-                  {evaluationcompentencieserror ? (
+                  {currenciestypeerror ? (
                     <div key="0" style={{ color: "red" }}>
-                      ERROR: {evaluationcompentencieserror}
+                      ERROR: {currenciestypeerror}
                     </div>
                   ) : (
                     [
-                      evaluationcompentenciesloading ? (
-                        <EvaluationCompentenciesDataTable
-                          item={evaluationcompentenciesItems}
-                          key="1"
-                        />
+                      currenciestypeloading ? (
+                        <CurrenciesTypeDataTable item={currenciestypeItems} key="1" />
+                      ) : (
+                        <div key="2" className="loading" />
+                      ),
+                    ]
+                  )}
+                </Row>
+              </TabPane>
+            </TabContent>
+            <TabContent activeTab={this.state.activeTab}>
+              <TabPane className="card  fade shadow   show  p-3" tabId="5">
+                <h4 className="font-italic mb-4">
+                  <IntlMessages id="section.section_Info" />
+                </h4>
+                <div className="row">
+                  <div className="col-sm-6"></div>
+                  <div className="col-sm-6">
+                    <Buttons
+                      color="primary"
+                      size="lg"
+                      value={<IntlMessages id="general.add_new"></IntlMessages>}
+                      styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
+                      onClick={this.sectiontoggleModal}
+                    />
+                  </div>
+                </div>
+                <Row>
+                  {sectionerror ? (
+                    <div key="0" style={{ color: "red" }}>
+                      ERROR: {sectionerror}
+                    </div>
+                  ) : (
+                    [
+                      sectionloading ? (
+                        <SectionDataTable item={sectionItems} key="1" />
                       ) : (
                         <div key="2" className="loading" />
                       ),
@@ -367,9 +455,9 @@ class Master extends Component {
             </TabContent>
 
             <TabContent activeTab={this.state.activeTab}>
-              <TabPane className="card  fade shadow   show  p-3" tabId="5">
+              <TabPane className="card  fade shadow   show  p-3" tabId="6">
                 <h4 className="font-italic mb-4">
-                  <IntlMessages id="education.education_Info"></IntlMessages>
+                  <IntlMessages id="costcenter.costcenter_Info" />
                 </h4>
                 <div className="row">
                   <div className="col-sm-6"></div>
@@ -379,19 +467,19 @@ class Master extends Component {
                       size="lg"
                       value={<IntlMessages id="general.add_new"></IntlMessages>}
                       styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
-                      onClick={this.educationtoggleModal}
+                      onClick={this.costcentertoggleModal}
                     />
                   </div>
                 </div>
                 <Row>
-                  {educationerror ? (
+                  {costcentererror ? (
                     <div key="0" style={{ color: "red" }}>
-                      ERROR: {educationerror}
+                      ERROR: {costcentererror}
                     </div>
                   ) : (
                     [
-                      educationloading ? (
-                        <EducationDataTable item={educationItems} key="1" />
+                      costcenterloading ? (
+                        <CostCenterDataTable item={costcenterItems} key="1" />
                       ) : (
                         <div key="2" className="loading" />
                       ),
@@ -400,59 +488,112 @@ class Master extends Component {
                 </Row>
               </TabPane>
             </TabContent>
+
+            <TabContent activeTab={this.state.activeTab}>
+              <TabPane className="card  fade shadow   show  p-3" tabId="7">
+                <h4 className="font-italic mb-4">
+                  <IntlMessages id="percentage.percentage_Info" />
+                </h4>
+                <div className="row">
+                  <div className="col-sm-6"></div>
+                  <div className="col-sm-6">
+                    <Buttons
+                      color="primary"
+                      size="lg"
+                      value={<IntlMessages id="general.add_new"></IntlMessages>}
+                      styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
+                      onClick={this.percentagetoggleModal}
+                    />
+                  </div>
+                </div>
+                <Row>
+                  {percentageerror ? (
+                    <div key="0" style={{ color: "red" }}>
+                      ERROR: {percentageerror}
+                    </div>
+                  ) : (
+                    [
+                      percentageloading ? (
+                        <PercentageDataTable item={percentageItems} key="1" />
+                      ) : (
+                        <div key="2" className="loading" />
+                      ),
+                    ]
+                  )}
+                </Row>
+              </TabPane>
+            </TabContent>
+
           </Colxx>
         </div>
-
-        <AddNewCountryModal
-          toggleModal={this.toggleModal}
-          modalOpen={countrymodalOpen}
+        <AddNewDeductionModal
+          toggleModal={this.deductiontoggleModal}
+          modalOpen={deductionmodalOpen}
         />
-        <AddNewCityModal
-          toggleModal={this.citytoggleModal}
-          modalOpen={citymodalOpen}
-        />
+       
         <AddNewReligionModal
           toggleModal={this.religiontoggleModal}
           modalOpen={religionmodalOpen}
         />
-        <AddNewevaluationcompentenciesModal
-          toggleModal={this.evaluationcompentenciestoggleModal}
-          modalOpen={evaluationcompentenciesmodalOpen}
+        
+  
+        <AddNewModificationTypeModal
+          toggleModal={this.modificationtypetoggleModal}
+          modalOpen={modificationtypemodalOpen}
         />
-        <AddNewEducationModal
-          toggleModal={this.educationtoggleModal}
-          modalOpen={educationmodalOpen}
+       <AddNewCurrenciesTypeModal
+          toggleModal={this.currenciestypetoggleModal}
+          modalOpen={currenciestypemodalOpen}
         />
-        {/* 
-        <AddNewDocumenttypeModal
-          toggleModal={this.documenttypetoggleModal}
-          modalOpen={documenttypemodalOpen}
-        /> */}
+       <AddNewSectionModal
+          toggleModal={this.sectiontoggleModal}
+          modalOpen={sectionmodalOpen}
+        />
+         <AddNewCostCenterModal
+          toggleModal={this.costcentertoggleModal}
+          modalOpen={costcentermodalOpen}
+        />
+         <AddNewPercentageModal
+          toggleModal={this.percentagetoggleModal}
+          modalOpen={percentagemodalOpen}
+        />
+        
+        
       </Fragment>
     );
   }
 }
 const mapStateToProps = ({
-  countryApp,
-  cityApp,
+  
   religionApp,
-  evaluationcompentenciesApp,
-  educationTrainingTypeApp,
+  deductionApp,
+  modificationtypeApp,
+  currenciestypeApp,
+  sectionApp,
+  costcenterApp,
+  percentageApp,
 }) => {
   return {
-    countryApp,
-    cityApp,
+    
     religionApp,
-    evaluationcompentenciesApp,
-    educationTrainingTypeApp,
+    deductionApp,
+    modificationtypeApp,
+    currenciestypeApp,
+    sectionApp,
+    costcenterApp,
+    percentageApp,
+    
   };
 };
 export default injectIntl(
   connect(mapStateToProps, {
-    getCountryList,
-    getCityList,
+    
     getReligionList,
-    getEvaluationcompentenciesList,
-    getEducationList,
+    getDeductionList,
+    getModificationTypeList,
+    getCurrenciesTypeList,
+    getSectionList,
+    getCostCenterList,
+    getPercentageList,
   })(Master)
 );

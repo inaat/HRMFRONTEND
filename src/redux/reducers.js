@@ -4,22 +4,28 @@ import authUser from "./auth/reducer";
 import settings from "./settings/reducer";
 import menu from "./menu/reducer";
 
-import countryApp from "./country/reducer";
-import cityApp from "./city/reducer";
-import religionApp from "./religion/reducer";
 
-import evaluationcompentenciesApp from "./evaluationcompentencies/reducer";
-import educationTrainingTypeApp from "./educationtrainingtype/reducer";
+import religionApp from "./religion/reducer";
+import deductionApp from "./deduction/reducer";
+import modificationtypeApp from "./modification_type/reducer";
+import currenciestypeApp from "./currencies_type/reducer";
+import sectionApp from "./section/reducer";
+import costcenterApp from "./costcenter/reducer";
+import percentageApp from "./percentage/reducer";
+
 // import documenttypeApp from "./documenttype/reducer";
 const reducers = combineReducers({
   authUser,
   menu,
   settings,
-  countryApp,
-  cityApp,
   religionApp,
-  evaluationcompentenciesApp,
-  educationTrainingTypeApp,
+  deductionApp,
+  modificationtypeApp,
+  currenciestypeApp,
+  sectionApp,
+  costcenterApp,
+  percentageApp,
+
   // documenttypeApp,
 });
 

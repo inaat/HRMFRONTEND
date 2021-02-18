@@ -17,23 +17,26 @@ import {
   FormikCustomCheckbox,
 } from "../../containers/form-validations/FormikFields";
 import IntlMessages from "../../helpers/IntlMessages";
-import { addReligionItem } from "../../redux/actions";
-const religionSchema = Yup.object().shape({
-  religion_name_eng: Yup.string().required(
-    "Religion name in english is required!"
+import { addCurrenciesTypeItem } from "../../redux/actions";
+const currenciestypeSchema = Yup.object().shape({
+  currencies_name_eng: Yup.string().required(
+    "CurrenciesType name in english is required!"
   ),
-  religion_name_arab: Yup.string().required(
-    "Religion name in arabic is required!"
+  currencies_name_arab: Yup.string().required(
+    "CurrenciesType name in arabic is required!"
+  ),
+  exchange_rate: Yup.string().required(
+    "Exchange Rate is required!"
   ),
 });
-class AddNewReligionModal extends Component {
+class AddNewCurrenciesTypeModal extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(values) {
-    this.props.addReligionItem(values);
+    this.props.addCurrenciesTypeItem(values);
     this.props.toggleModal();
   }
 
@@ -48,14 +51,15 @@ class AddNewReligionModal extends Component {
         backdrop="static"
       >
         <ModalHeader toggle={toggleModal}>
-          <IntlMessages id="religion.add-new-title" />
+          <IntlMessages id="currenciestypes.add-new-title" />
         </ModalHeader>
         <Formik
           initialValues={{
-            religion_name_eng: "",
-            religion_name_arab: "",
+            currencies_name_eng: "",
+            currencies_name_arab: "",
+            exchange_rate: "",
           }}
-          validationSchema={religionSchema}
+          validationSchema={currenciestypeSchema}
           onSubmit={this.handleSubmit}
         >
           {({
@@ -71,23 +75,34 @@ class AddNewReligionModal extends Component {
               <ModalBody>
                 <FormGroup>
                   <Label>
-                    <IntlMessages id="religion.religion_name_eng" />
+                    <IntlMessages id="currenciestypes.currencies_name_eng" />
                   </Label>
-                  <Field className="form-control" name="religion_name_eng" />
-                  {errors.religion_name_eng && touched.religion_name_eng && (
+                  <Field className="form-control" name="currencies_name_eng" />
+                  {errors.currencies_name_eng && touched.currencies_name_eng && (
                     <div className="invalid-feedback d-block">
-                      {errors.religion_name_eng}
+                      {errors.currencies_name_eng}
                     </div>
                   )}
                 </FormGroup>
                 <FormGroup>
                   <Label>
-                    <IntlMessages id="religion.religion_name_arab" />
+                    <IntlMessages id="currenciestypes.currencies_name_arab" />
                   </Label>
-                  <Field className="form-control" name="religion_name_arab" />
-                  {errors.religion_name_arab && touched.religion_name_arab && (
+                  <Field className="form-control" name="currencies_name_arab" />
+                  {errors.currencies_name_arab && touched.currencies_name_arab && (
                     <div className="invalid-feedback d-block">
-                      {errors.religion_name_arab}
+                      {errors.currencies_name_arab}
+                    </div>
+                  )}
+                </FormGroup>
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="currenciestypes.exchange_rate" />
+                  </Label>
+                  <Field className="form-control" name="exchange_rate" />
+                  {errors.exchange_rate && touched.exchange_rate && (
+                    <div className="invalid-feedback d-block">
+                      {errors.exchange_rate}
                     </div>
                   )}
                 </FormGroup>
@@ -107,12 +122,12 @@ class AddNewReligionModal extends Component {
     );
   }
 }
-const mapStateToProps = ({  religionApp }) => {
+const mapStateToProps = ({  currenciestypeApp }) => {
   return {
     
-    religionApp,
+    currenciestypeApp,
   };
 };
 export default connect(mapStateToProps, {
-  addReligionItem,
-})(AddNewReligionModal);
+  addCurrenciesTypeItem,
+})(AddNewCurrenciesTypeModal);

@@ -8,33 +8,27 @@ import {
   ModalFooter,
   Label,
   FormGroup,
-  CustomInput,
 } from "reactstrap";
 import * as Yup from "yup";
 import { Formik, Form, Field } from "formik";
-import {
-  FormikReactSelect,
-  FormikCustomCheckbox,
-} from "../../containers/form-validations/FormikFields";
 import IntlMessages from "../../helpers/IntlMessages";
-import { addReligionItem } from "../../redux/actions";
-const religionSchema = Yup.object().shape({
-  religion_name_eng: Yup.string().required(
-    "Religion name in english is required!"
+import { updateDeductionItem } from "../../redux/actions";
+const deductionSchema = Yup.object().shape({
+  deduction_desc_eng: Yup.string().required(
+    "Deduction name in english is required!"
   ),
-  religion_name_arab: Yup.string().required(
-    "Religion name in arabic is required!"
+  deduction_desc_arab: Yup.string().required(
+    "Deduction name in arabic is required!"
   ),
 });
-class AddNewReligionModal extends Component {
+class EditDeductionModal extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   handleSubmit(values) {
-    this.props.addReligionItem(values);
-    this.props.toggleModal();
+    values["id"] = this.props.endpoint.id;
+    this.props.updateDeductionItem(values);
   }
 
   render() {
@@ -48,46 +42,46 @@ class AddNewReligionModal extends Component {
         backdrop="static"
       >
         <ModalHeader toggle={toggleModal}>
-          <IntlMessages id="religion.add-new-title" />
+          <IntlMessages id="deduction.update-title" />
         </ModalHeader>
         <Formik
           initialValues={{
-            religion_name_eng: "",
-            religion_name_arab: "",
+            deduction_desc_eng: this.props.endpoint.deduction_desc_eng,
+            deduction_desc_arab: this.props.endpoint.deduction_desc_arab,
           }}
-          validationSchema={religionSchema}
+          validationSchema={deductionSchema}
           onSubmit={this.handleSubmit}
         >
-          {({
-            setFieldValue,
-            setFieldTouched,
-            handleChange,
-            handleBlur,
-            values,
-            errors,
-            touched,
-          }) => (
+          {({ values, errors, touched }) => (
             <Form className="av-tooltip tooltip-label-right">
               <ModalBody>
                 <FormGroup>
                   <Label>
-                    <IntlMessages id="religion.religion_name_eng" />
+                    <IntlMessages id="deduction.deduction_desc_eng" />
                   </Label>
-                  <Field className="form-control" name="religion_name_eng" />
-                  {errors.religion_name_eng && touched.religion_name_eng && (
+                  <Field
+                    className="form-control"
+                    value={values.deduction_desc_eng}
+                    name="deduction_desc_eng"
+                  />
+                  {errors.deduction_desc_eng && touched.deduction_desc_eng && (
                     <div className="invalid-feedback d-block">
-                      {errors.religion_name_eng}
+                      {errors.deduction_desc_eng}
                     </div>
                   )}
                 </FormGroup>
                 <FormGroup>
                   <Label>
-                    <IntlMessages id="religion.religion_name_arab" />
+                    <IntlMessages id="deduction.deduction_desc_arab" />
                   </Label>
-                  <Field className="form-control" name="religion_name_arab" />
-                  {errors.religion_name_arab && touched.religion_name_arab && (
+                  <Field
+                    className="form-control"
+                    value={values.deduction_desc_arab}
+                    name="deduction_desc_arab"
+                  />
+                  {errors.deduction_desc_arab && touched.deduction_desc_arab && (
                     <div className="invalid-feedback d-block">
-                      {errors.religion_name_arab}
+                      {errors.deduction_desc_arab}
                     </div>
                   )}
                 </FormGroup>
@@ -107,12 +101,14 @@ class AddNewReligionModal extends Component {
     );
   }
 }
-const mapStateToProps = ({  religionApp }) => {
+
+const mapStateToProps = ({ countryApp, cityApp, deductionApp }) => {
   return {
-    
-    religionApp,
+    countryApp,
+    cityApp,
+    deductionApp,
   };
 };
 export default connect(mapStateToProps, {
-  addReligionItem,
-})(AddNewReligionModal);
+  updateDeductionItem,
+})(EditDeductionModal);

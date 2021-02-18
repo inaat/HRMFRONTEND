@@ -17,23 +17,26 @@ import {
   FormikCustomCheckbox,
 } from "../../containers/form-validations/FormikFields";
 import IntlMessages from "../../helpers/IntlMessages";
-import { addReligionItem } from "../../redux/actions";
-const religionSchema = Yup.object().shape({
-  religion_name_eng: Yup.string().required(
-    "Religion name in english is required!"
+import { addSectionItem } from "../../redux/actions";
+const sectionSchema = Yup.object().shape({
+  section_desc_eng: Yup.string().required(
+    "Section name in english is required!"
   ),
-  religion_name_arab: Yup.string().required(
-    "Religion name in arabic is required!"
+  section_desc_arab: Yup.string().required(
+    "Section name in arabic is required!"
+  ),
+  exchange_rate: Yup.string().required(
+    "Exchange Rate is required!"
   ),
 });
-class AddNewReligionModal extends Component {
+class AddNewSectionModal extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(values) {
-    this.props.addReligionItem(values);
+    this.props.addSectionItem(values);
     this.props.toggleModal();
   }
 
@@ -48,14 +51,15 @@ class AddNewReligionModal extends Component {
         backdrop="static"
       >
         <ModalHeader toggle={toggleModal}>
-          <IntlMessages id="religion.add-new-title" />
+          <IntlMessages id="section.add-new-title" />
         </ModalHeader>
         <Formik
           initialValues={{
-            religion_name_eng: "",
-            religion_name_arab: "",
+            section_desc_eng: "",
+            section_desc_arab: "",
+            exchange_rate: "",
           }}
-          validationSchema={religionSchema}
+          validationSchema={sectionSchema}
           onSubmit={this.handleSubmit}
         >
           {({
@@ -71,23 +75,34 @@ class AddNewReligionModal extends Component {
               <ModalBody>
                 <FormGroup>
                   <Label>
-                    <IntlMessages id="religion.religion_name_eng" />
+                    <IntlMessages id="section.section_desc_eng" />
                   </Label>
-                  <Field className="form-control" name="religion_name_eng" />
-                  {errors.religion_name_eng && touched.religion_name_eng && (
+                  <Field className="form-control" name="section_desc_eng" />
+                  {errors.section_desc_eng && touched.section_desc_eng && (
                     <div className="invalid-feedback d-block">
-                      {errors.religion_name_eng}
+                      {errors.section_desc_eng}
                     </div>
                   )}
                 </FormGroup>
                 <FormGroup>
                   <Label>
-                    <IntlMessages id="religion.religion_name_arab" />
+                    <IntlMessages id="section.section_desc_arab" />
                   </Label>
-                  <Field className="form-control" name="religion_name_arab" />
-                  {errors.religion_name_arab && touched.religion_name_arab && (
+                  <Field className="form-control" name="section_desc_arab" />
+                  {errors.section_desc_arab && touched.section_desc_arab && (
                     <div className="invalid-feedback d-block">
-                      {errors.religion_name_arab}
+                      {errors.section_desc_arab}
+                    </div>
+                  )}
+                </FormGroup>
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="section.exchange_rate" />
+                  </Label>
+                  <Field className="form-control" name="exchange_rate" />
+                  {errors.exchange_rate && touched.exchange_rate && (
+                    <div className="invalid-feedback d-block">
+                      {errors.exchange_rate}
                     </div>
                   )}
                 </FormGroup>
@@ -107,12 +122,12 @@ class AddNewReligionModal extends Component {
     );
   }
 }
-const mapStateToProps = ({  religionApp }) => {
+const mapStateToProps = ({  sectionApp }) => {
   return {
     
-    religionApp,
+    sectionApp,
   };
 };
 export default connect(mapStateToProps, {
-  addReligionItem,
-})(AddNewReligionModal);
+  addSectionItem,
+})(AddNewSectionModal);

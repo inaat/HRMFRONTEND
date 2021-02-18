@@ -17,23 +17,23 @@ import {
   FormikCustomCheckbox,
 } from "../../containers/form-validations/FormikFields";
 import IntlMessages from "../../helpers/IntlMessages";
-import { addReligionItem } from "../../redux/actions";
-const religionSchema = Yup.object().shape({
-  religion_name_eng: Yup.string().required(
-    "Religion name in english is required!"
+import { addModificationTypeItem } from "../../redux/actions";
+const modificationtypeSchema = Yup.object().shape({
+  modification_desc_eng: Yup.string().required(
+    "Modification Type Description in english is required!"
   ),
-  religion_name_arab: Yup.string().required(
-    "Religion name in arabic is required!"
+  modification_desc_arab: Yup.string().required(
+    "Modification Type Descfiption in arabic is required!"
   ),
 });
-class AddNewReligionModal extends Component {
+class AddNewModificationTypeModal extends Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(values) {
-    this.props.addReligionItem(values);
+    this.props.addModificationTypeItem(values);
     this.props.toggleModal();
   }
 
@@ -48,14 +48,14 @@ class AddNewReligionModal extends Component {
         backdrop="static"
       >
         <ModalHeader toggle={toggleModal}>
-          <IntlMessages id="religion.add-new-title" />
+          <IntlMessages id="modificationtypes.add-new-title" />
         </ModalHeader>
         <Formik
           initialValues={{
-            religion_name_eng: "",
-            religion_name_arab: "",
+            modification_desc_eng: "",
+            modification_desc_arab: "",
           }}
-          validationSchema={religionSchema}
+          validationSchema={modificationtypeSchema}
           onSubmit={this.handleSubmit}
         >
           {({
@@ -71,23 +71,23 @@ class AddNewReligionModal extends Component {
               <ModalBody>
                 <FormGroup>
                   <Label>
-                    <IntlMessages id="religion.religion_name_eng" />
+                    <IntlMessages id="modificationtypes.modification_desc_eng" />
                   </Label>
-                  <Field className="form-control" name="religion_name_eng" />
-                  {errors.religion_name_eng && touched.religion_name_eng && (
+                  <Field className="form-control" name="modification_desc_eng" />
+                  {errors.modification_desc_eng && touched.modification_desc_eng && (
                     <div className="invalid-feedback d-block">
-                      {errors.religion_name_eng}
+                      {errors.modification_desc_eng}
                     </div>
                   )}
                 </FormGroup>
                 <FormGroup>
                   <Label>
-                    <IntlMessages id="religion.religion_name_arab" />
+                    <IntlMessages id="modificationtypes.modification_desc_arab" />
                   </Label>
-                  <Field className="form-control" name="religion_name_arab" />
-                  {errors.religion_name_arab && touched.religion_name_arab && (
+                  <Field className="form-control" name="modification_desc_arab" />
+                  {errors.modification_desc_arab && touched.modification_desc_arab && (
                     <div className="invalid-feedback d-block">
-                      {errors.religion_name_arab}
+                      {errors.modification_desc_arab}
                     </div>
                   )}
                 </FormGroup>
@@ -96,6 +96,7 @@ class AddNewReligionModal extends Component {
                 <Button color="danger" onClick={toggleModal}>
                   <IntlMessages id="general.cancel" />
                 </Button>
+
                 <Button color="primary" type="submit">
                   <IntlMessages id="general.save" />
                 </Button>
@@ -107,12 +108,12 @@ class AddNewReligionModal extends Component {
     );
   }
 }
-const mapStateToProps = ({  religionApp }) => {
+const mapStateToProps = ({ modificationtypeApp }) => {
   return {
-    
-    religionApp,
+
+    modificationtypeApp,
   };
 };
 export default connect(mapStateToProps, {
-  addReligionItem,
-})(AddNewReligionModal);
+  addModificationTypeItem,
+})(AddNewModificationTypeModal);
