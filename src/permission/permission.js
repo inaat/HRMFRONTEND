@@ -7,5 +7,5 @@ export function canEdit(page) {
   return user.permissions.some((p) => p === `edit_${page}`);
 }
 export function canDelete(page) {
-  return user.permissions.some((p) => p === `edit_${page}`);
+  return user.permissions.some((p) => p === `delete_${page}`);
 }

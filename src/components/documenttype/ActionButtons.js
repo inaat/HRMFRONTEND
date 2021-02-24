@@ -19,7 +19,7 @@ const ActionButton = (props) => {
   const deleteToggleModal = () => setmodalOpen(!modalOpen);
   const editToggleModal = () => seteditModaldalOpen(!editModalOpen);
   const actions = (editToggleModal) => {
-    if (canEdit("Documenttypes")) {
+    if (canEdit("document_types")) {
       return (
         <DropdownItem>
           <a className="" onClick={editToggleModal}>
@@ -31,7 +31,7 @@ const ActionButton = (props) => {
     }
   };
   const action = (deleteToggleModal) => {
-    if (canDelete("Documenttypes")) {
+    if (canDelete("document_types")) {
       return (
         <DropdownItem>
           <a className="text-danger " onClick={deleteToggleModal}>
