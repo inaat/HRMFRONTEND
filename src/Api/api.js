@@ -147,6 +147,10 @@ export function requestUpdateLeaveVacationType(values) {
   return axios.put(`${"leavevacationtype"}/${values.id}`, values);
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 // position desingation
 export function requestGetPositionDesignation() {
   return axios.request({
@@ -314,6 +318,7 @@ export function requestDeletePercentage(values) {
 }
 export function requestUpdatePercentage(values) {
   return axios.put(`${"percentage"}/${values.id}`, values);
+<<<<<<< HEAD
 }
 
 // evaluation type
@@ -390,3 +395,6 @@ export function requestDeleteGosiSubscription(values) {
 export function requestUpdateGosiSubscription(values) {
   return axios.put(`${"gosisubscription"}/${values.id}`, values);
 }
+=======
+}
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd

@@ -39,7 +39,7 @@ class AddNewReligionModal extends Component {
 
   render() {
     const { modalOpen, toggleModal } = this.props;
-    const { countryItems } = this.props.countryApp;
+
     return (
       <Modal
         isOpen={modalOpen}
@@ -107,10 +107,9 @@ class AddNewReligionModal extends Component {
     );
   }
 }
-const mapStateToProps = ({ countryApp, cityApp, religionApp }) => {
+const mapStateToProps = ({  religionApp }) => {
   return {
-    countryApp,
-    cityApp,
+    
     religionApp,
   };
 };

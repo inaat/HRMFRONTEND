@@ -33,11 +33,15 @@ export default (state = INIT_STATE, action) => {
       };
 
     case COSTCENTER_GET_LIST_ERROR:
+<<<<<<< HEAD
       return {
         ...state,
         costcenterloading: true,
         costcentererror: action.payload,
       };
+=======
+      return { ...state, costcenterloading: true, costcentererror: action.payload };
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     case COSTCENTER_ADD_ITEM:
       return { ...state, costcenterloading: false };
@@ -48,7 +52,11 @@ export default (state = INIT_STATE, action) => {
       item.costcenter_name_eng = action.payload.costcenter_name_eng;
       item.costcenter_name_arab = action.payload.costcenter_name_arab;
       item.costcenter_status = action.payload.costcenter_status;
+<<<<<<< HEAD
       // item.store_cc = action.payload.store_cc;
+=======
+      item.store_cc = action.payload.store_cc;
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
       items.splice(0, 0, item);
       return {
         ...state,
@@ -57,11 +65,15 @@ export default (state = INIT_STATE, action) => {
       };
 
     case COSTCENTER_ADD_ITEM_ERROR:
+<<<<<<< HEAD
       return {
         ...state,
         costcenterloading: true,
         costcentererror: action.payload,
       };
+=======
+      return { ...state, costcenterloading: true, costcentererror: action.payload };
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     case COSTCENTER_DELETE_ITEM:
       return {
@@ -85,11 +97,15 @@ export default (state = INIT_STATE, action) => {
       };
 
     case COSTCENTER_DELETE_ITEM_ERROR:
+<<<<<<< HEAD
       return {
         ...state,
         costcenterloading: true,
         costcentererror: action.payload,
       };
+=======
+      return { ...state, costcenterloading: true, costcentererror: action.payload };
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     case COSTCENTER_UPDATE_ITEM:
       return {
@@ -103,8 +119,13 @@ export default (state = INIT_STATE, action) => {
             ...item,
             costcenter_name_arab: action.payload.costcenter_name_arab,
             costcenter_name_eng: action.payload.costcenter_name_eng,
+<<<<<<< HEAD
             costcenter_status: action.payload.costcenter_status,
             //store_cc : action.payload.store_cc,
+=======
+            costcenter_status :action.payload.costcenter_status,
+            store_cc : action.payload.store_cc,
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
           };
         }
         return item;
@@ -115,11 +136,15 @@ export default (state = INIT_STATE, action) => {
         costcenterItems: con,
       };
     case COSTCENTER_UPDATE_ITEM_ERROR:
+<<<<<<< HEAD
       return {
         ...state,
         costcenterloading: true,
         costcentererror: action.payload,
       };
+=======
+      return { ...state, costcenterloading: true, costcentererror: action.payload };
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     default:
       return { ...state };

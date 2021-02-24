@@ -25,7 +25,16 @@ const costcenterSchema = Yup.object().shape({
   costcenter_name_arab: Yup.string().required(
     "CostCenter name in arabic is required!"
   ),
+<<<<<<< HEAD
   costcenter_status: Yup.string().required("CostCenter Status is required!"),
+=======
+  costcenter_status: Yup.string().required(
+    "CostCenter Status is required!"
+  ),
+  store_cc: Yup.string().required(
+    "Store C_C is required!"
+  ),
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 });
 class AddNewCostCenterModal extends Component {
   constructor(props) {
@@ -34,7 +43,10 @@ class AddNewCostCenterModal extends Component {
   }
 
   handleSubmit(values) {
+<<<<<<< HEAD
     console.log(values);
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     this.props.addCostCenterItem(values);
     this.props.toggleModal();
   }
@@ -78,18 +90,27 @@ class AddNewCostCenterModal extends Component {
                     <IntlMessages id="costcenter.costcenter_name_eng" />
                   </Label>
                   <Field className="form-control" name="costcenter_name_eng" />
+<<<<<<< HEAD
                   {errors.costcenter_name_eng &&
                     touched.costcenter_name_eng && (
                       <div className="invalid-feedback d-block">
                         {errors.costcenter_name_eng}
                       </div>
                     )}
+=======
+                  {errors.costcenter_name_eng && touched.costcenter_name_eng && (
+                    <div className="invalid-feedback d-block">
+                      {errors.costcenter_name_eng}
+                    </div>
+                  )}
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                 </FormGroup>
                 <FormGroup>
                   <Label>
                     <IntlMessages id="costcenter.costcenter_name_arab" />
                   </Label>
                   <Field className="form-control" name="costcenter_name_arab" />
+<<<<<<< HEAD
                   {errors.costcenter_name_arab &&
                     touched.costcenter_name_arab && (
                       <div className="invalid-feedback d-block">
@@ -115,6 +136,26 @@ class AddNewCostCenterModal extends Component {
                   ) : null}
                 </FormGroup>
                 {/* <FormGroup>
+=======
+                  {errors.costcenter_name_arab && touched.costcenter_name_arab && (
+                    <div className="invalid-feedback d-block">
+                      {errors.costcenter_name_arab}
+                    </div>
+                  )}
+                </FormGroup>
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="costcenter.costcenter_status" />
+                  </Label>
+                  <Field className="form-control" name="costcenter_status" />
+                  {errors.costcenter_status && touched.costcenter_status && (
+                    <div className="invalid-feedback d-block">
+                      {errors.costcenter_status}
+                    </div>
+                  )}
+                </FormGroup>
+                <FormGroup>
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   <Label>
                     <IntlMessages id="costcenter.store_cc" />
                   </Label>
@@ -124,7 +165,11 @@ class AddNewCostCenterModal extends Component {
                       {errors.store_cc}
                     </div>
                   )}
+<<<<<<< HEAD
                 </FormGroup> */}
+=======
+                </FormGroup>
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" onClick={toggleModal}>
@@ -141,8 +186,14 @@ class AddNewCostCenterModal extends Component {
     );
   }
 }
+<<<<<<< HEAD
 const mapStateToProps = ({ costcenterApp }) => {
   return {
+=======
+const mapStateToProps = ({  costcenterApp }) => {
+  return {
+    
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     costcenterApp,
   };
 };

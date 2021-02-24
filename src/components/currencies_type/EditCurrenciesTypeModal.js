@@ -13,7 +13,11 @@ import * as Yup from "yup";
 import { Formik, Form, Field } from "formik";
 import IntlMessages from "../../helpers/IntlMessages";
 import { updateCurrenciesTypeItem } from "../../redux/actions";
+<<<<<<< HEAD
 const currencies_typeschema = Yup.object().shape({
+=======
+const currenciestypeSchema = Yup.object().shape({
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
   currency_name_eng: Yup.string().required(
     "CurrenciesType name in english is required!"
   ),
@@ -42,7 +46,11 @@ class EditCurrenciesTypeModal extends Component {
         backdrop="static"
       >
         <ModalHeader toggle={toggleModal}>
+<<<<<<< HEAD
           <IntlMessages id="currencies_types.update-title" />
+=======
+          <IntlMessages id="currenciestypes.update-title" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
         </ModalHeader>
         <Formik
           initialValues={{
@@ -50,7 +58,11 @@ class EditCurrenciesTypeModal extends Component {
             currency_name_arab: this.props.endpoint.currency_name_arab,
             exchange_rate: this.props.endpoint.exchange_rate,
           }}
+<<<<<<< HEAD
           validationSchema={currencies_typeschema}
+=======
+          validationSchema={currenciestypeSchema}
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
           onSubmit={this.handleSubmit}
         >
           {({ values, errors, touched }) => (
@@ -58,7 +70,11 @@ class EditCurrenciesTypeModal extends Component {
               <ModalBody>
                 <FormGroup>
                   <Label>
+<<<<<<< HEAD
                     <IntlMessages id="currencies_types.currency_name_eng" />
+=======
+                    <IntlMessages id="currenciestypes.currencies_name_eng" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   </Label>
                   <Field
                     className="form-control"
@@ -73,7 +89,11 @@ class EditCurrenciesTypeModal extends Component {
                 </FormGroup>
                 <FormGroup>
                   <Label>
+<<<<<<< HEAD
                     <IntlMessages id="currencies_types.currency_name_arab" />
+=======
+                    <IntlMessages id="currenciestypes.currencies_name_arab" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   </Label>
                   <Field
                     className="form-control"
@@ -88,15 +108,22 @@ class EditCurrenciesTypeModal extends Component {
                 </FormGroup>
                 <FormGroup>
                   <Label>
+<<<<<<< HEAD
                     <IntlMessages id="currencies_types.exchange_rate" />
+=======
+                    <IntlMessages id="currenciestypes.exchange_rate" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   </Label>
                   <Field
                     className="form-control"
                     value={values.exchange_rate}
                     name="exchange_rate"
+<<<<<<< HEAD
                     type="number"
                     min="0"
                     step="1"
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   />
                   {errors.exchange_rate && touched.exchange_rate && (
                     <div className="invalid-feedback d-block">
@@ -110,7 +137,11 @@ class EditCurrenciesTypeModal extends Component {
                   <IntlMessages id="general.cancel" />
                 </Button>
                 <Button color="primary" type="submit">
+<<<<<<< HEAD
                   <IntlMessages id="general.update" />
+=======
+                  <IntlMessages id="general.save" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                 </Button>
               </ModalFooter>
             </Form>

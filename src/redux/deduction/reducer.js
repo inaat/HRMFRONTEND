@@ -33,11 +33,15 @@ export default (state = INIT_STATE, action) => {
       };
 
     case DEDUCTION_GET_LIST_ERROR:
+<<<<<<< HEAD
       return {
         ...state,
         deductionloading: true,
         deductionerror: action.payload,
       };
+=======
+      return { ...state, deductionloading: true, deductionerror: action.payload };
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     case DEDUCTION_ADD_ITEM:
       return { ...state, deductionloading: false };
@@ -47,11 +51,14 @@ export default (state = INIT_STATE, action) => {
       item.id = action.payload.id;
       item.deduction_desc_eng = action.payload.deduction_desc_eng;
       item.deduction_desc_arab = action.payload.deduction_desc_arab;
+<<<<<<< HEAD
       item.printable = action.payload.printable;
       item.show_in_report = action.payload.show_in_report;
       item.mb = action.payload.mb;
       item.request = action.payload.request;
 
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
       items.splice(0, 0, item);
       return {
         ...state,
@@ -60,11 +67,15 @@ export default (state = INIT_STATE, action) => {
       };
 
     case DEDUCTION_ADD_ITEM_ERROR:
+<<<<<<< HEAD
       return {
         ...state,
         deductionloading: true,
         deductionerror: action.payload,
       };
+=======
+      return { ...state, deductionloading: true, deductionerror: action.payload };
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     case DEDUCTION_DELETE_ITEM:
       return {
@@ -88,11 +99,15 @@ export default (state = INIT_STATE, action) => {
       };
 
     case DEDUCTION_DELETE_ITEM_ERROR:
+<<<<<<< HEAD
       return {
         ...state,
         deductionloading: true,
         deductionerror: action.payload,
       };
+=======
+      return { ...state, deductionloading: true, deductionerror: action.payload };
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     case DEDUCTION_UPDATE_ITEM:
       return {
@@ -106,10 +121,14 @@ export default (state = INIT_STATE, action) => {
             ...item,
             deduction_desc_arab: action.payload.deduction_desc_arab,
             deduction_desc_eng: action.payload.deduction_desc_eng,
+<<<<<<< HEAD
             printable: action.payload.printable,
             show_in_report: action.payload.show_in_report,
             mb: action.payload.mb,
             request: action.payload.request,
+=======
+            
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
           };
         }
         return item;
@@ -120,11 +139,15 @@ export default (state = INIT_STATE, action) => {
         deductionItems: con,
       };
     case DEDUCTION_UPDATE_ITEM_ERROR:
+<<<<<<< HEAD
       return {
         ...state,
         deductionloading: true,
         deductionerror: action.payload,
       };
+=======
+      return { ...state, deductionloading: true, deductionerror: action.payload };
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     default:
       return { ...state };

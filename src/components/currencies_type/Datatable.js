@@ -14,26 +14,44 @@ const Datatable = ({ item }) => {
     pagination: "advance",
   };
   const columns = [
+<<<<<<< HEAD
     {
       key: "currency_name_arab",
       text: (
         <IntlMessages id="currencies_types.currency_name_arab"></IntlMessages>
       ),
+=======
+   
+    {
+      key: "currency_name_arab",
+      text: <IntlMessages id="currenciestypes.currencies_name_arab"></IntlMessages>,
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
       sortable: true,
     },
     {
       key: "currency_name_eng",
+<<<<<<< HEAD
       text: (
         <IntlMessages id="currencies_types.currency_name_eng"></IntlMessages>
       ),
+=======
+      text: <IntlMessages id="currenciestypes.currencies_name_eng"></IntlMessages>,
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
       sortable: true,
     },
     {
       key: "exchange_rate",
+<<<<<<< HEAD
       text: <IntlMessages id="currencies_types.exchange_rate"></IntlMessages>,
       sortable: true,
     },
 
+=======
+      text: <IntlMessages id="currenciestypes.exchange_rate"></IntlMessages>,
+      sortable: true,
+    },
+  
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     {
       key: "action",
       text: "Action",

@@ -9,8 +9,11 @@ import {
   Label,
   FormGroup,
   CustomInput,
+<<<<<<< HEAD
   Col,
   Row,
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 } from "reactstrap";
 import * as Yup from "yup";
 import { Formik, Form, Field } from "formik";
@@ -40,7 +43,11 @@ class AddNewDeductionModal extends Component {
   }
 
   render() {
+<<<<<<< HEAD
     const { modalOpen, toggleModal } = this.props;
+=======
+    const { modalOpen, toggleModal} = this.props;
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     return (
       <Modal
         isOpen={modalOpen}
@@ -51,11 +58,15 @@ class AddNewDeductionModal extends Component {
         <ModalHeader toggle={toggleModal}>
           <IntlMessages id="deduction.add-new-title" />
         </ModalHeader>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
         <Formik
           initialValues={{
             deduction_desc_eng: "",
             deduction_desc_arab: "",
+<<<<<<< HEAD
             printable: false,
             show_in_report: false,
             mb: false,
@@ -67,6 +78,8 @@ class AddNewDeductionModal extends Component {
             // credit_gl_id: "",
             //holiday_flag: false,
             //final_set_flag: false,
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
           }}
           validationSchema={deductionSchema}
           onSubmit={this.handleSubmit}
@@ -82,6 +95,7 @@ class AddNewDeductionModal extends Component {
           }) => (
             <Form className="av-tooltip tooltip-label-right">
               <ModalBody>
+<<<<<<< HEAD
                 <Row form>
                   <Col md={6}>
                     <FormGroup>
@@ -174,6 +188,30 @@ class AddNewDeductionModal extends Component {
                     </FormGroup>
                   </Col>
                 </Row>
+=======
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="deduction.deduction_desc_eng" />
+                  </Label>
+                  <Field className="form-control" name="deduction_desc_eng" />
+                  {errors.deduction_desc_eng && touched.deduction_desc_eng && (
+                    <div className="invalid-feedback d-block">
+                      {errors.deduction_desc_eng}
+                    </div>
+                  )}
+                </FormGroup>
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="deduction.deduction_desc_arab" />
+                  </Label>
+                  <Field className="form-control" name="deduction_desc_arab" />
+                  {errors.deduction_desc_arab && touched.deduction_desc_arab && (
+                    <div className="invalid-feedback d-block">
+                      {errors.deduction_desc_arab}
+                    </div>
+                  )}
+                </FormGroup>
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" onClick={toggleModal}>
@@ -190,7 +228,11 @@ class AddNewDeductionModal extends Component {
     );
   }
 }
+<<<<<<< HEAD
 const mapStateToProps = ({ deductionApp }) => {
+=======
+const mapStateToProps = ({deductionApp }) => {
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
   return {
     deductionApp,
   };

@@ -13,10 +13,13 @@ import * as Yup from "yup";
 import { Formik, Form, Field } from "formik";
 import IntlMessages from "../../helpers/IntlMessages";
 import { updateCostCenterItem } from "../../redux/actions";
+<<<<<<< HEAD
 import {
   FormikReactSelect,
   FormikCustomCheckbox,
 } from "../../containers/form-validations/FormikFields";
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 const costcenterSchema = Yup.object().shape({
   costcenter_name_eng: Yup.string().required(
     "CostCenter name in english is required!"
@@ -24,7 +27,16 @@ const costcenterSchema = Yup.object().shape({
   costcenter_name_arab: Yup.string().required(
     "CostCenter name in arabic is required!"
   ),
+<<<<<<< HEAD
   costcenter_status: Yup.string().required("CostCenter Status is required!"),
+=======
+  costcenter_status: Yup.string().required(
+    "CostCenter Status is required!"
+  ),
+  store_cc: Yup.string().required(
+    "Store C_C is required!"
+  ),
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 });
 class EditCostCenterModal extends Component {
   constructor(props) {
@@ -59,6 +71,7 @@ class EditCostCenterModal extends Component {
           validationSchema={costcenterSchema}
           onSubmit={this.handleSubmit}
         >
+<<<<<<< HEAD
           {({
             setFieldValue,
             setFieldTouched,
@@ -68,6 +81,9 @@ class EditCostCenterModal extends Component {
             errors,
             touched,
           }) => (
+=======
+          {({ values, errors, touched }) => (
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
             <Form className="av-tooltip tooltip-label-right">
               <ModalBody>
                 <FormGroup>
@@ -79,12 +95,20 @@ class EditCostCenterModal extends Component {
                     value={values.costcenter_name_eng}
                     name="costcenter_name_eng"
                   />
+<<<<<<< HEAD
                   {errors.costcenter_name_eng &&
                     touched.costcenter_name_eng && (
                       <div className="invalid-feedback d-block">
                         {errors.costcenter_name_eng}
                       </div>
                     )}
+=======
+                  {errors.costcenter_name_eng && touched.costcenter_name_eng && (
+                    <div className="invalid-feedback d-block">
+                      {errors.costcenter_name_eng}
+                    </div>
+                  )}
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                 </FormGroup>
                 <FormGroup>
                   <Label>
@@ -95,6 +119,7 @@ class EditCostCenterModal extends Component {
                     value={values.costcenter_name_arab}
                     name="costcenter_name_arab"
                   />
+<<<<<<< HEAD
                   {errors.costcenter_name_arab &&
                     touched.costcenter_name_arab && (
                       <div className="invalid-feedback d-block">
@@ -121,12 +146,60 @@ class EditCostCenterModal extends Component {
                 </FormGroup>
               </ModalBody>
 
+=======
+                  {errors.costcenter_name_arab && touched.costcenter_name_arab && (
+                    <div className="invalid-feedback d-block">
+                      {errors.costcenter_name_arab}
+                    </div>
+                  )}
+                </FormGroup>
+
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="costcenter.costcenter_status" />
+                  </Label>
+                  <Field
+                    className="form-control"
+                    value={values.costcenter_status}
+                    name="costcenter_status"
+                  />
+                  {errors.costcenter_status && touched.costcenter_status && (
+                    <div className="invalid-feedback d-block">
+                      {errors.costcenter_status}
+                    </div>
+                  )}
+                </FormGroup>
+
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="costcenter.store_cc" />
+                  </Label>
+                  <Field
+                    className="form-control"
+                    value={values.store_cc}
+                    name="store_cc"
+                  />
+                  {errors.store_cc && touched.store_cc && (
+                    <div className="invalid-feedback d-block">
+                      {errors.store_cc}
+                    </div>
+                  )}
+                </FormGroup>
+
+              </ModalBody>
+
+              
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
               <ModalFooter>
                 <Button color="danger" onClick={toggleModal}>
                   <IntlMessages id="general.cancel" />
                 </Button>
                 <Button color="primary" type="submit">
+<<<<<<< HEAD
                   <IntlMessages id="general.update" />
+=======
+                  <IntlMessages id="general.save" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                 </Button>
               </ModalFooter>
             </Form>
@@ -137,8 +210,14 @@ class EditCostCenterModal extends Component {
   }
 }
 
+<<<<<<< HEAD
 const mapStateToProps = ({ costcenterApp }) => {
   return {
+=======
+const mapStateToProps = ({  costcenterApp }) => {
+  return {
+   
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     costcenterApp,
   };
 };

@@ -2,7 +2,11 @@ import React, { Fragment } from "react";
 import ReactDatatable from "@ashvin27/react-datatable";
 import ActionButton from "./ActionButtons";
 import IntlMessages from "../../helpers/IntlMessages";
+<<<<<<< HEAD
 import { Card, CustomInput } from "reactstrap";
+=======
+import { Card } from "reactstrap";
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
 import { Colxx } from "../common/CustomBootstrap";
 
@@ -14,17 +18,26 @@ const Datatable = ({ item }) => {
     pagination: "advance",
   };
   const columns = [
+<<<<<<< HEAD
+=======
+   
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     {
       key: "deduction_desc_arab",
       text: <IntlMessages id="deduction.deduction_desc_arab"></IntlMessages>,
       sortable: true,
     },
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     {
       key: "deduction_desc_eng",
       text: <IntlMessages id="deduction.deduction_desc_eng"></IntlMessages>,
       sortable: true,
     },
+<<<<<<< HEAD
 
     {
       key: "printable",
@@ -103,6 +116,13 @@ const Datatable = ({ item }) => {
       },
     },
 
+=======
+    {
+      key: "printable",
+      text: <IntlMessages id="deduction.deduction_desc_arab"></IntlMessages>,
+      sortable: true,
+    },
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     {
       key: "action",
       text: "Action",

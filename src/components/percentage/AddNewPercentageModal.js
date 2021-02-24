@@ -25,6 +25,7 @@ const percentageSchema = Yup.object().shape({
   percent_desc_arab: Yup.string().required(
     "Percentage name in arabic is required!"
   ),
+<<<<<<< HEAD
   // percent_fr: Yup.string().required(
   //   "Percentage From is required!"
   // ),
@@ -32,6 +33,17 @@ const percentageSchema = Yup.object().shape({
   //   "Percentage To is required!"
   // ),
   percent_value: Yup.string().required("Percentage Value is required!"),
+=======
+  percent_fr: Yup.string().required(
+    "Percentage From is required!"
+  ),
+  percent_to: Yup.string().required(
+    "Percentage To is required!"
+  ),
+  percent_value: Yup.string().required(
+    "Percentage Value is required!"
+  ),
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 });
 class AddNewPercentageModal extends Component {
   constructor(props) {
@@ -106,6 +118,7 @@ class AddNewPercentageModal extends Component {
                   <Label>
                     <IntlMessages id="percentage.percent_fr" />
                   </Label>
+<<<<<<< HEAD
                   <Field
                     className="form-control"
                     name="percent_fr"
@@ -113,6 +126,9 @@ class AddNewPercentageModal extends Component {
                     min="0"
                     step="1"
                   />
+=======
+                  <Field className="form-control" name="percent_fr" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   {errors.percent_fr && touched.percent_fr && (
                     <div className="invalid-feedback d-block">
                       {errors.percent_fr}
@@ -124,6 +140,7 @@ class AddNewPercentageModal extends Component {
                   <Label>
                     <IntlMessages id="percentage.percent_to" />
                   </Label>
+<<<<<<< HEAD
                   <Field
                     className="form-control"
                     name="percent_to"
@@ -131,6 +148,9 @@ class AddNewPercentageModal extends Component {
                     min="0"
                     step="1"
                   />
+=======
+                  <Field className="form-control" name="percent_to" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   {errors.percent_to && touched.percent_to && (
                     <div className="invalid-feedback d-block">
                       {errors.percent_to}
@@ -142,6 +162,7 @@ class AddNewPercentageModal extends Component {
                   <Label>
                     <IntlMessages id="percentage.percent_value" />
                   </Label>
+<<<<<<< HEAD
                   <Field
                     className="form-control"
                     name="percent_value"
@@ -149,6 +170,9 @@ class AddNewPercentageModal extends Component {
                     min="0"
                     step="1"
                   />
+=======
+                  <Field className="form-control" name="percent_value" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   {errors.percent_value && touched.percent_value && (
                     <div className="invalid-feedback d-block">
                       {errors.percent_value}
@@ -171,8 +195,14 @@ class AddNewPercentageModal extends Component {
     );
   }
 }
+<<<<<<< HEAD
 const mapStateToProps = ({ percentageApp }) => {
   return {
+=======
+const mapStateToProps = ({  percentageApp }) => {
+  return {
+    
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     percentageApp,
   };
 };

@@ -112,6 +112,7 @@ module.exports = {
   "education.education_desc_arab": "Education Training Type Name In Arabic",
   "education.add-new-title": "Add New Education Training Type",
   //Education/Training/Type
+<<<<<<< HEAD
   "documenttypes.documenttype": "Document Types",
   "documenttypes.documenttype_Info": "Document Type/ Information",
   "documenttypes.update-title": "Update Document Type ",
@@ -213,6 +214,24 @@ module.exports = {
   "deduction.show_in_report": "Show In Report",
   "deduction.mb": "MB",
   "deduction.request": "Request",
+=======
+  "documenttype.documenttype": "Document Types",
+  "documenttype.documenttype_Info": "Document Type/ Information",
+  "documenttype.update-title": "Document Type ",
+  "documenttype.documenttype_desc_eng":
+    "documenttype Training Type Name In English",
+  "documenttype.documenttype_desc_arab":
+    "documenttype Training Type Name In Arabic",
+  "documenttype.add-new-title": "Add New document Training Type",
+
+    // deduction types
+    "deduction.deduction": "Deduction/Types",
+    "deduction.deduction_Info": "Deduction/Types Information",
+    "deduction.update-title": "Update Deduction/Types",
+    "deduction.deduction_desc_eng": "Deduction Description In English",
+    "deduction.deduction_desc_arab": "Deduction Description In Arabic",
+    "deduction.add-new-title": "Add New Deduction/Types",
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
   // modification types
   "modificationtypes.modificationtype": "Modification/Types",
@@ -224,6 +243,7 @@ module.exports = {
   "modificationtypes.add-new-title": "Add New Modification/Types",
 
   // currencies types
+<<<<<<< HEAD
   "currencies_types.currencytype": "Currencies/Types",
   "currencies_types.currencies_types_Info": "Currencies/Types Information",
   "currencies_types.update-title": "Update Currencies/Types",
@@ -231,6 +251,15 @@ module.exports = {
   "currencies_types.currency_name_arab": "Currencies Name In Arabic",
   "currencies_types.add-new-title": "Add New Currencies/Types",
   "currencies_types.exchange_rate": "Exchange Rate",
+=======
+  "currenciestypes.currencytype": "Currencies/Types",
+  "currenciestypes.currenciestypes_Info": "Currencies/Types Information",
+  "currenciestypes.update-title": "Update Currencies/Types",
+  "currenciestypes.currencies_name_eng": "Currencies Name In English",
+  "currenciestypes.currencies_namToab": "Currencies Name In Arabic",
+  "currpercent_value" : "Percentages Value",
+  "currenciestypes.add-new-title": "Add New Currencies/Types",
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
   // section
   "section.section": "Section/Description",
@@ -238,6 +267,7 @@ module.exports = {
   "section.update-title": "Update Section/Description",
   "section.section_desc_eng": "Section Description In English",
   "section.section_desc_arab": "Section Description In Arabic",
+<<<<<<< HEAD
   "section.exchange_rate": "Exchange Rate",
   "section.add-new-title": "Add New Section/Description",
 
@@ -333,4 +363,30 @@ module.exports = {
   "gosisubscription.yearmonth_id_hi": "Year Month ID Hi",
   "gosisubscription.current_flag": "Current Flag",
   "gosisubscription.comments": "Comments",
+=======
+  "section.exchange_rate" : "Exchange Rate",
+  "section.add-new-title": "Add New Section/Description",
+
+   // section
+   "costcenter.costcenter": "Cost Centers",
+   "costcenter.costcenter_Info": "Cost Centers Information",
+   "costcenter.update-title": "Update Cost Centers",
+   "costcenter.costcenter_name_eng": "Cost Centers Name  In English",
+   "costcenter.costcenter_name_arab": "Cost Centers Name In Arabic",
+   "costcenter.costcenter_status": "Cost Centers Status",
+   "costcenter.store_cc": "Store C_C",
+   "costcenter.add-new-title": "Add New Cost Centers",
+
+   // percentage
+   "percentage.percentage": "Percentages",
+   "percentage.percentage_Info": "Percentages Information",
+   "percentage.update-title": "Update Percentages",
+   "percentage.percent_desc_eng": "Percentages Description  In English",
+   "percentage.percent_desc_arab": "Percentages Description In Arabic",
+   "percentage.percentage_status": "Percentages Status",
+   "percentage.percent_fr": "Percentages From ",
+   "percentage.percent_to": "Percentages To ",
+   "percentage.percent_value" : "Percentages Value",
+   "percentage.add-new-title": "Add New Percentages",
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 };

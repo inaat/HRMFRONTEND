@@ -20,6 +20,7 @@ const percentageSchema = Yup.object().shape({
   percent_desc_arab: Yup.string().required(
     "Percentage name in arabic is required!"
   ),
+<<<<<<< HEAD
   // percent_fr: Yup.string().required(
   //   "Percentage From is required!"
   // ),
@@ -27,6 +28,17 @@ const percentageSchema = Yup.object().shape({
   //   "Percentage To is required!"
   // ),
   percent_value: Yup.string().required("Percentage Value is required!"),
+=======
+  percent_fr: Yup.string().required(
+    "Percentage From is required!"
+  ),
+  percent_to: Yup.string().required(
+    "Percentage To is required!"
+  ),
+  percent_value: Yup.string().required(
+    "Percentage Value is required!"
+  ),
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 });
 class EditPercentageModal extends Component {
   constructor(props) {
@@ -104,9 +116,12 @@ class EditPercentageModal extends Component {
                     className="form-control"
                     value={values.percent_fr}
                     name="percent_fr"
+<<<<<<< HEAD
                     type="number"
                     min="0"
                     step="1"
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   />
                   {errors.percent_fr && touched.percent_fr && (
                     <div className="invalid-feedback d-block">
@@ -123,9 +138,12 @@ class EditPercentageModal extends Component {
                     className="form-control"
                     value={values.percent_to}
                     name="percent_to"
+<<<<<<< HEAD
                     type="number"
                     min="0"
                     step="1"
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   />
                   {errors.percent_to && touched.percent_to && (
                     <div className="invalid-feedback d-block">
@@ -142,9 +160,12 @@ class EditPercentageModal extends Component {
                     className="form-control"
                     value={values.percent_value}
                     name="percent_value"
+<<<<<<< HEAD
                     type="number"
                     min="0"
                     step="1"
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   />
                   {errors.percent_value && touched.percent_value && (
                     <div className="invalid-feedback d-block">
@@ -152,13 +173,21 @@ class EditPercentageModal extends Component {
                     </div>
                   )}
                 </FormGroup>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" onClick={toggleModal}>
                   <IntlMessages id="general.cancel" />
                 </Button>
                 <Button color="primary" type="submit">
+<<<<<<< HEAD
                   <IntlMessages id="general.update" />
+=======
+                  <IntlMessages id="general.save" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                 </Button>
               </ModalFooter>
             </Form>
@@ -169,8 +198,14 @@ class EditPercentageModal extends Component {
   }
 }
 
+<<<<<<< HEAD
 const mapStateToProps = ({ percentageApp }) => {
   return {
+=======
+const mapStateToProps = ({  percentageApp }) => {
+  return {
+
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     percentageApp,
   };
 };

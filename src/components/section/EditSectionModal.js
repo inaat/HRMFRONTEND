@@ -20,6 +20,12 @@ const sectionSchema = Yup.object().shape({
   section_desc_arab: Yup.string().required(
     "Section Description in arabic is required!"
   ),
+<<<<<<< HEAD
+=======
+  exchange_rate: Yup.string().required(
+    "Exchange Rate  is required!"
+  ),
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 });
 class EditSectionModal extends Component {
   constructor(props) {
@@ -86,13 +92,35 @@ class EditSectionModal extends Component {
                     </div>
                   )}
                 </FormGroup>
+<<<<<<< HEAD
+=======
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="section.exchange_rate" />
+                  </Label>
+                  <Field
+                    className="form-control"
+                    value={values.exchange_rate}
+                    name="exchange_rate"
+                  />
+                  {errors.exchange_rate && touched.exchange_rate && (
+                    <div className="invalid-feedback d-block">
+                      {errors.exchange_rate}
+                    </div>
+                  )}
+                </FormGroup>
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" onClick={toggleModal}>
                   <IntlMessages id="general.cancel" />
                 </Button>
                 <Button color="primary" type="submit">
+<<<<<<< HEAD
                   <IntlMessages id="general.update" />
+=======
+                  <IntlMessages id="general.save" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                 </Button>
               </ModalFooter>
             </Form>
@@ -103,8 +131,14 @@ class EditSectionModal extends Component {
   }
 }
 
+<<<<<<< HEAD
 const mapStateToProps = ({ sectionApp }) => {
   return {
+=======
+const mapStateToProps = ({  sectionApp }) => {
+  return {
+
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     sectionApp,
   };
 };

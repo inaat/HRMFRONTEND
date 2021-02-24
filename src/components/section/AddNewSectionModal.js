@@ -25,6 +25,12 @@ const sectionSchema = Yup.object().shape({
   section_desc_arab: Yup.string().required(
     "Section name in arabic is required!"
   ),
+<<<<<<< HEAD
+=======
+  exchange_rate: Yup.string().required(
+    "Exchange Rate is required!"
+  ),
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 });
 class AddNewSectionModal extends Component {
   constructor(props) {
@@ -54,6 +60,10 @@ class AddNewSectionModal extends Component {
           initialValues={{
             section_desc_eng: "",
             section_desc_arab: "",
+<<<<<<< HEAD
+=======
+            exchange_rate: "",
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
           }}
           validationSchema={sectionSchema}
           onSubmit={this.handleSubmit}
@@ -91,6 +101,20 @@ class AddNewSectionModal extends Component {
                     </div>
                   )}
                 </FormGroup>
+<<<<<<< HEAD
+=======
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="section.exchange_rate" />
+                  </Label>
+                  <Field className="form-control" name="exchange_rate" />
+                  {errors.exchange_rate && touched.exchange_rate && (
+                    <div className="invalid-feedback d-block">
+                      {errors.exchange_rate}
+                    </div>
+                  )}
+                </FormGroup>
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" onClick={toggleModal}>
@@ -107,8 +131,14 @@ class AddNewSectionModal extends Component {
     );
   }
 }
+<<<<<<< HEAD
 const mapStateToProps = ({ sectionApp }) => {
   return {
+=======
+const mapStateToProps = ({  sectionApp }) => {
+  return {
+    
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     sectionApp,
   };
 };

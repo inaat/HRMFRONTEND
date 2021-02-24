@@ -17,6 +17,21 @@ import {
   FormikCustomCheckbox,
 } from "../../containers/form-validations/FormikFields";
 import IntlMessages from "../../helpers/IntlMessages";
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:src/components/evaluationtype/AddNewEvaluationTypeModal.js
+import { addEvaluationTypeItem } from "../../redux/actions";
+const evaluationtypeSchema = Yup.object().shape({
+  evaluation_type_desc_eng: Yup.string().required(
+    "EvaluationType name in english is required!"
+  ),
+  evaluation_type_desc_arab: Yup.string().required(
+    "EvaluationType name in arabic is required!"
+  ),
+});
+class AddNewEvaluationTypeModal extends Component {
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 import { addModificationTypeItem } from "../../redux/actions";
 const modificationtypeSchema = Yup.object().shape({
   modification_desc_eng: Yup.string().required(
@@ -27,13 +42,25 @@ const modificationtypeSchema = Yup.object().shape({
   ),
 });
 class AddNewModificationTypeModal extends Component {
+<<<<<<< HEAD
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd:src/components/modification_type/AddNewModificationTypeModal.js
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleSubmit(values) {
+<<<<<<< HEAD
     this.props.addModificationTypeItem(values);
+=======
+<<<<<<< HEAD:src/components/evaluationtype/AddNewEvaluationTypeModal.js
+    this.props.addEvaluationTypeItem(values);
+=======
+    this.props.addModificationTypeItem(values);
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd:src/components/modification_type/AddNewModificationTypeModal.js
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     this.props.toggleModal();
   }
 
@@ -48,6 +75,19 @@ class AddNewModificationTypeModal extends Component {
         backdrop="static"
       >
         <ModalHeader toggle={toggleModal}>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:src/components/evaluationtype/AddNewEvaluationTypeModal.js
+          <IntlMessages id="evaluationtype.add-new-title" />
+        </ModalHeader>
+        <Formik
+          initialValues={{
+            evaluation_type_desc_eng: "",
+            evaluation_type_desc_arab: "",
+          }}
+          validationSchema={evaluationtypeSchema}
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
           <IntlMessages id="modificationtypes.add-new-title" />
         </ModalHeader>
         <Formik
@@ -56,6 +96,10 @@ class AddNewModificationTypeModal extends Component {
             modification_desc_arab: "",
           }}
           validationSchema={modificationtypeSchema}
+<<<<<<< HEAD
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd:src/components/modification_type/AddNewModificationTypeModal.js
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
           onSubmit={this.handleSubmit}
         >
           {({
@@ -71,23 +115,53 @@ class AddNewModificationTypeModal extends Component {
               <ModalBody>
                 <FormGroup>
                   <Label>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:src/components/evaluationtype/AddNewEvaluationTypeModal.js
+                    <IntlMessages id="evaluationtype.evaluation_type_desc_eng" />
+                  </Label>
+                  <Field className="form-control" name="evaluation_type_desc_eng" />
+                  {errors.evaluation_type_desc_eng && touched.evaluation_type_desc_eng && (
+                    <div className="invalid-feedback d-block">
+                      {errors.evaluation_type_desc_eng}
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                     <IntlMessages id="modificationtypes.modification_desc_eng" />
                   </Label>
                   <Field className="form-control" name="modification_desc_eng" />
                   {errors.modification_desc_eng && touched.modification_desc_eng && (
                     <div className="invalid-feedback d-block">
                       {errors.modification_desc_eng}
+<<<<<<< HEAD
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd:src/components/modification_type/AddNewModificationTypeModal.js
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                     </div>
                   )}
                 </FormGroup>
                 <FormGroup>
                   <Label>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:src/components/evaluationtype/AddNewEvaluationTypeModal.js
+                    <IntlMessages id="evaluationtype.evaluation_type_desc_arab" />
+                  </Label>
+                  <Field className="form-control" name="evaluation_type_desc_arab" />
+                  {errors.evaluation_type_desc_arab && touched.evaluation_type_desc_arab && (
+                    <div className="invalid-feedback d-block">
+                      {errors.evaluation_type_desc_arab}
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                     <IntlMessages id="modificationtypes.modification_desc_arab" />
                   </Label>
                   <Field className="form-control" name="modification_desc_arab" />
                   {errors.modification_desc_arab && touched.modification_desc_arab && (
                     <div className="invalid-feedback d-block">
                       {errors.modification_desc_arab}
+<<<<<<< HEAD
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd:src/components/modification_type/AddNewModificationTypeModal.js
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                     </div>
                   )}
                 </FormGroup>
@@ -108,6 +182,20 @@ class AddNewModificationTypeModal extends Component {
     );
   }
 }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD:src/components/evaluationtype/AddNewEvaluationTypeModal.js
+const mapStateToProps = ({  evaluationtypeApp }) => {
+  return {
+    
+    evaluationtypeApp,
+  };
+};
+export default connect(mapStateToProps, {
+  addEvaluationTypeItem,
+})(AddNewEvaluationTypeModal);
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 const mapStateToProps = ({ modificationtypeApp }) => {
   return {
 
@@ -117,3 +205,7 @@ const mapStateToProps = ({ modificationtypeApp }) => {
 export default connect(mapStateToProps, {
   addModificationTypeItem,
 })(AddNewModificationTypeModal);
+<<<<<<< HEAD
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd:src/components/modification_type/AddNewModificationTypeModal.js
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd

@@ -33,11 +33,15 @@ export default (state = INIT_STATE, action) => {
       };
 
     case CURRENCIESTYPE_GET_LIST_ERROR:
+<<<<<<< HEAD
       return {
         ...state,
         currenciestypeloading: true,
         currenciestypeerror: action.payload,
       };
+=======
+      return { ...state, currenciestypeloading: true, currenciestypeerror: action.payload };
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     case CURRENCIESTYPE_ADD_ITEM:
       return { ...state, currenciestypeloading: false };
@@ -47,6 +51,10 @@ export default (state = INIT_STATE, action) => {
       item.id = action.payload.id;
       item.currency_name_eng = action.payload.currency_name_eng;
       item.currency_name_arab = action.payload.currency_name_arab;
+<<<<<<< HEAD
+=======
+      item.exchange_rate = action.payload.exchange_rate;
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
       items.splice(0, 0, item);
       return {
         ...state,
@@ -55,11 +63,15 @@ export default (state = INIT_STATE, action) => {
       };
 
     case CURRENCIESTYPE_ADD_ITEM_ERROR:
+<<<<<<< HEAD
       return {
         ...state,
         currenciestypeloading: true,
         currenciestypeerror: action.payload,
       };
+=======
+      return { ...state, currenciestypeloading: true, currenciestypeerror: action.payload };
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     case CURRENCIESTYPE_DELETE_ITEM:
       return {
@@ -83,11 +95,15 @@ export default (state = INIT_STATE, action) => {
       };
 
     case CURRENCIESTYPE_DELETE_ITEM_ERROR:
+<<<<<<< HEAD
       return {
         ...state,
         currenciestypeloading: true,
         currenciestypeerror: action.payload,
       };
+=======
+      return { ...state, currenciestypeloading: true, currenciestypeerror: action.payload };
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     case CURRENCIESTYPE_UPDATE_ITEM:
       return {
@@ -101,6 +117,11 @@ export default (state = INIT_STATE, action) => {
             ...item,
             currency_name_arab: action.payload.currency_name_arab,
             currency_name_eng: action.payload.currency_name_eng,
+<<<<<<< HEAD
+=======
+            exchange_rate: action.payload.exchange_rate,
+            
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
           };
         }
         return item;
@@ -111,11 +132,15 @@ export default (state = INIT_STATE, action) => {
         currenciestypeItems: con,
       };
     case CURRENCIESTYPE_UPDATE_ITEM_ERROR:
+<<<<<<< HEAD
       return {
         ...state,
         currenciestypeloading: true,
         currenciestypeerror: action.payload,
       };
+=======
+      return { ...state, currenciestypeloading: true, currenciestypeerror: action.payload };
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
     default:
       return { ...state };

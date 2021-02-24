@@ -4,15 +4,19 @@ import { NavLink } from "react-router-dom";
 import Buttons from "../../../components/common/Button";
 import classnames from "classnames";
 import { injectIntl } from "react-intl";
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
 import { connect } from "react-redux";
 import IntlMessages from "../../../helpers/IntlMessages";
 import { Colxx, Separator } from "../../../components/common/CustomBootstrap";
 import Breadcrumb from "../../../containers/navs/Breadcrumb";
 import {
-  getCountryList,
-  getCityList,
+ 
   getReligionList,
+<<<<<<< HEAD
   getEvaluationcompentenciesList,
   getEducationList,
   getDocumenttypeList,
@@ -21,24 +25,27 @@ import {
   getPositionDesignationList,
   getSponsorList,
   getEarningsBenefitsList,
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
   getDeductionList,
   getModificationTypeList,
   getCurrenciesTypeList,
   getSectionList,
   getCostCenterList,
   getPercentageList,
+<<<<<<< HEAD
   getEvaluationTypeList,
   getSessionList,
   getCompanyScheduleList,
   getGosiSubscriptionList,
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 } from "../../../redux/actions";
-import AddNewCountryModal from "../../../components/country/AddNewCountryModal";
-import DataTable from "../../../components/country/Datatable";
-import CityDataTable from "../../../components/city/Datatable";
-import AddNewCityModal from "../../../components/city/AddNewCityModal";
+
 // Religion
 import ReligionDataTable from "../../../components/religion/Datatable";
 import AddNewReligionModal from "../../../components/religion/AddNewReligionModal";
+<<<<<<< HEAD
 
 //EvaluationCompentencies
 import EvaluationCompentenciesDataTable from "../../../components/evaluationcompentencies/Datatable";
@@ -98,17 +105,43 @@ import AddNewCompanyScheduleModal from "../../../components/companyschedule/AddN
 // GosiSubscription
 import GosiSubscriptionDataTable from "../../../components/gosisubsubscription/Datatable";
 import AddNewGosiSubscriptionModal from "../../../components/gosisubsubscription/AddNewGosiSubscriptionModal";
+// deducation
+import DeductionDataTable from "../../../components/deduction/Datatable";
+import AddNewDeductionModal from "../../../components/deduction/AddNewDeductionModal";
+//  modification type
+import ModificationTypeDataTable from "../../../components/modification_type/Datatable";
+import AddNewModificationTypeModal from "../../../components/modification_type/AddNewModificationTypeModal";
+//  currencies type
+import CurrenciesTypeDataTable from "../../../components/currencies_type/Datatable";
+import AddNewCurrenciesTypeModal from "../../../components/currencies_type/AddNewCurrenciesTypeModal";
+//  section
+import SectionDataTable from "../../../components/section/Datatable";
+import AddNewSectionModal from "../../../components/section/AddNewSectionModal";
+//  cost center
+import CostCenterDataTable from "../../../components/costcenter/Datatable";
+import AddNewCostCenterModal from "../../../components/costcenter/AddNewCostCenterModal";
+//  cost center
+import PercentageDataTable from "../../../components/percentage/Datatable";
+import AddNewPercentageModal from "../../../components/percentage/AddNewPercentageModal";
+
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
 class Master extends Component {
   constructor(props) {
     super(props);
     this.state = {
       dropdownSplitOpen: false,
+<<<<<<< HEAD
       countrymodalOpen: false,
       citymodalOpen: false,
       activeTab: "1",
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
       displayOptionsIsOpen: false,
+      activeTab: "7",
+      
       religionmodalOpen: false,
+<<<<<<< HEAD
       evaluationcompentenciesmodaOpen: false,
       educationmodalOpen: false,
       documenttypemodalOpen: false,
@@ -118,25 +151,29 @@ class Master extends Component {
       positiondesignationmodalOpen: false,
       sponsormodalOpen: false,
       earningsbenefitsmodalOpen: false,
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
       deductionmodalOpen: false,
       modificationtypemodalOpen: false,
       currenciestypemodalOpen: false,
       sectionmodalOpen: false,
       costcentermodalOpen: false,
       percentagemodalOpen: false,
+<<<<<<< HEAD
       evaluationtypemodalOpen: false,
       sessionmodalOpen: false,
       companyschedulemodalOpen: false,
       gosisubscriptionmodalOpen: false,
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     };
   }
   toggle = (tab) => {
     if (this.activeTab !== tab) this.setState({ activeTab: tab });
   };
   componentDidMount() {
-    this.props.getCountryList();
-    this.props.getCityList();
     this.props.getReligionList();
+<<<<<<< HEAD
     this.props.getEvaluationcompentenciesList();
     this.props.getEducationList();
     this.props.getDocumenttypeList();
@@ -145,52 +182,63 @@ class Master extends Component {
     this.props.getPositionDesignationList();
     this.props.getSponsorList();
     this.props.getEarningsBenefitsList();
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     this.props.getDeductionList();
     this.props.getModificationTypeList();
     this.props.getCurrenciesTypeList();
     this.props.getSectionList();
     this.props.getCostCenterList();
     this.props.getPercentageList();
+<<<<<<< HEAD
     this.props.getEvaluationTypeList();
     this.props.getSessionList();
     this.props.getCompanyScheduleList();
     this.props.getGosiSubscriptionList();
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
   }
 
-  toggleModal = () => {
-    this.setState({
-      countrymodalOpen: !this.state.countrymodalOpen,
-    });
-  };
-  citytoggleModal = () => {
-    this.setState({
-      citymodalOpen: !this.state.citymodalOpen,
-    });
-  };
   religiontoggleModal = () => {
     this.setState({
       religionmodalOpen: !this.state.religionmodalOpen,
     });
   };
 
-  evaluationcompentenciestoggleModal = () => {
+  deductiontoggleModal = () => {
+   
     this.setState({
-      evaluationcompentenciesmodalOpen: !this.state
-        .evaluationcompentenciesmodalOpen,
+      deductionmodalOpen: !this.state.deductionmodalOpen,
     });
   };
-  educationtoggleModal = () => {
+  modificationtypetoggleModal = () => {
     this.setState({
-      educationmodalOpen: !this.state.educationmodalOpen,
+      modificationtypemodalOpen: !this.state.modificationtypemodalOpen,
+    });
+  };
+  currenciestypetoggleModal = () => {
+    this.setState({
+      currenciestypemodalOpen: !this.state.currenciestypemodalOpen,
     });
   };
 
-  documenttypetoggleModal = () => {
+  sectiontoggleModal = () => {
     this.setState({
-      documenttypemodalOpen: !this.state.documenttypemodalOpen,
+      sectionmodalOpen: !this.state.sectionmodalOpen,
+    });
+  };
+  costcentertoggleModal = () => {
+    this.setState({
+      costcentermodalOpen: !this.state.costcentermodalOpen,
+    });
+  };
+  percentagetoggleModal = () => {
+    this.setState({
+      percentagemodalOpen: !this.state.percentagemodalOpen,
     });
   };
 
+<<<<<<< HEAD
   beneficiary_typetoggleModal = () => {
     this.setState({
       beneficiary_typemodalOpen: !this.state.beneficiary_typemodalOpen,
@@ -392,8 +440,20 @@ class Master extends Component {
       gosisubscriptionloading,
       gosisubscriptionerror,
     } = this.props.gosisubscriptionApp;
+=======
+  render() {
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 
-    return (
+    const {religionItems,religionloading,religionerror,} = this.props.religionApp;
+  const {deductionItems,deductionloading,deductionerror,} = this.props.deductionApp;
+  const {modificationtypeItems,modificationtypeloading, modificationtypeerror,} = this.props.modificationtypeApp;
+  const {currenciestypeItems,currenciestypeloading, currenciestypeerror,} = this.props.currenciestypeApp;
+  const {sectionItems,sectionloading, sectionerror,} = this.props.sectionApp;
+  const {costcenterItems,costcenterloading, costcentererror,} = this.props.costcenterApp;
+  const {percentageItems,percentageloading, percentageerror,} = this.props.percentageApp;
+  const {religionmodalOpen,deductionmodalOpen,modificationtypemodalOpen,currenciestypemodalOpen,sectionmodalOpen, costcentermodalOpen, percentagemodalOpen} = this.state;
+ 
+  return (
       <Fragment>
         <Row>
           <Colxx xxs="12">
@@ -409,8 +469,10 @@ class Master extends Component {
               role="tablist"
               aria-orientation="vertical"
             >
+             
               <NavLink
                 className={classnames({
+                  active: this.activeTab === "1",
                   "nav-link": true,
                   " mb-2": true,
                   "p-2": true,
@@ -423,13 +485,14 @@ class Master extends Component {
                 }}
                 to="#"
               >
-                <IntlMessages id="country.countries"></IntlMessages>
+                <IntlMessages id="religion.religion" />
               </NavLink>
+
+           
 
               <NavLink
                 className={classnames({
-                  active: this.activeTab === "2",
-
+                 
                   "nav-link": true,
                   " mb-2": true,
                   "p-2": true,
@@ -442,11 +505,12 @@ class Master extends Component {
                 }}
                 to="#"
               >
-                <IntlMessages id="city.city" />
+               Deduction
               </NavLink>
+
               <NavLink
                 className={classnames({
-                  active: this.activeTab === "3",
+                 
                   "nav-link": true,
                   " mb-2": true,
                   "p-2": true,
@@ -459,12 +523,12 @@ class Master extends Component {
                 }}
                 to="#"
               >
-                <IntlMessages id="religion.religion" />
+                Modification/Type
               </NavLink>
 
               <NavLink
                 className={classnames({
-                  active: this.activeTab === "4",
+                 
                   "nav-link": true,
                   " mb-2": true,
                   "p-2": true,
@@ -477,12 +541,13 @@ class Master extends Component {
                 }}
                 to="#"
               >
-                <IntlMessages id="evalutioncompentencies.evalutioncompentencies" />
+               Currencies/Type
               </NavLink>
 
+              
               <NavLink
                 className={classnames({
-                  active: this.activeTab === "5",
+                 
                   "nav-link": true,
                   " mb-2": true,
                   "p-2": true,
@@ -495,8 +560,27 @@ class Master extends Component {
                 }}
                 to="#"
               >
-                <IntlMessages id="education.education"></IntlMessages>
+               Sections
               </NavLink>
+
+              <NavLink
+                className={classnames({
+                 
+                  "nav-link": true,
+                  " mb-2": true,
+                  "p-2": true,
+                  shadow: true,
+                  "text-center": true,
+                  active: this.state.activeTab === "6",
+                })}
+                onClick={() => {
+                  this.toggle("6");
+                }}
+                to="#"
+              >
+               Cost Centers
+              </NavLink>
+<<<<<<< HEAD
               <NavLink
                 className={classnames({
                   active: this.activeTab === "6",
@@ -516,6 +600,12 @@ class Master extends Component {
               </NavLink>
               <NavLink
                 className={classnames({
+=======
+
+              <NavLink
+                className={classnames({
+                 
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   "nav-link": true,
                   " mb-2": true,
                   "p-2": true,
@@ -528,6 +618,7 @@ class Master extends Component {
                 }}
                 to="#"
               >
+<<<<<<< HEAD
                 <IntlMessages id="beneficiarytypes.beneficiary" />
               </NavLink>
 
@@ -841,6 +932,22 @@ class Master extends Component {
             <TabContent activeTab={this.state.activeTab}>
               <TabPane className="card  fade shadow   show  p-3" tabId="3">
                 <h4 className="font-italic mb-4">
+=======
+              Percentages
+              </NavLink>
+
+
+
+            </div>
+          </Colxx>
+          <Colxx xxs="12" xs="12" md="10" lg="10">
+            
+            
+
+            <TabContent activeTab={this.state.activeTab}>
+              <TabPane className="card  fade shadow   show  p-3" tabId="1">
+                <h4 className="font-italic mb-4">
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                   <IntlMessages id="religion.religion_Info" />
                 </h4>
                 <div className="row">
@@ -872,6 +979,7 @@ class Master extends Component {
                 </Row>
               </TabPane>
             </TabContent>
+<<<<<<< HEAD
             <TabContent activeTab={this.state.activeTab}>
               <TabPane className="card  fade shadow   show  p-3" tabId="4">
                 <h4 className="font-italic mb-4">
@@ -1096,6 +1204,14 @@ class Master extends Component {
               <TabPane className="card  fade shadow   show  p-3" tabId="10">
                 <h4 className="font-italic mb-4">
                   <IntlMessages id="sponsor.sponsor_Info" />
+=======
+
+           
+            <TabContent activeTab={this.state.activeTab}>
+              <TabPane className="card  fade shadow   show  p-3" tabId="2">
+                <h4 className="font-italic mb-4">
+                <IntlMessages id="deduction.deduction_Info" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                 </h4>
                 <div className="row">
                   <div className="col-sm-6"></div>
@@ -1105,11 +1221,16 @@ class Master extends Component {
                       size="lg"
                       value={<IntlMessages id="general.add_new"></IntlMessages>}
                       styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
+<<<<<<< HEAD
                       onClick={this.sponsortoggleModal}
+=======
+                      onClick={this.deductiontoggleModal}
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                     />
                   </div>
                 </div>
                 <Row>
+<<<<<<< HEAD
                   {sponsorerror ? (
                     <div key="0" style={{ color: "red" }}>
                       ERROR: {sponsorerror}
@@ -1118,6 +1239,16 @@ class Master extends Component {
                     [
                       sponsorloading ? (
                         <SponsorDataTable item={sponsorItems} key="1" />
+=======
+                  {deductionerror ? (
+                    <div key="0" style={{ color: "red" }}>
+                      ERROR: {deductionerror}
+                    </div>
+                  ) : (
+                    [
+                      deductionloading ? (
+                        <DeductionDataTable item={deductionItems} key="1" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                       ) : (
                         <div key="2" className="loading" />
                       ),
@@ -1126,10 +1257,18 @@ class Master extends Component {
                 </Row>
               </TabPane>
             </TabContent>
+<<<<<<< HEAD
             <TabContent activeTab={this.state.activeTab}>
               <TabPane className="card  fade shadow   show  p-3" tabId="11">
                 <h4 className="font-italic mb-4">
                   <IntlMessages id="earnings_benefits.earnings_benefits_Info" />
+=======
+            
+            <TabContent activeTab={this.state.activeTab}>
+              <TabPane className="card  fade shadow   show  p-3" tabId="3">
+                <h4 className="font-italic mb-4">
+                  <IntlMessages id="modificationtypes.modificationtype_Info" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                 </h4>
                 <div className="row">
                   <div className="col-sm-6"></div>
@@ -1139,11 +1278,16 @@ class Master extends Component {
                       size="lg"
                       value={<IntlMessages id="general.add_new"></IntlMessages>}
                       styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
+<<<<<<< HEAD
                       onClick={this.earningsbenefitstoggleModal}
+=======
+                      onClick={this.modificationtypetoggleModal}
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                     />
                   </div>
                 </div>
                 <Row>
+<<<<<<< HEAD
                   {earningsbenefitserror ? (
                     <div key="0" style={{ color: "red" }}>
                       ERROR: {earningsbenefitserror}
@@ -1155,6 +1299,16 @@ class Master extends Component {
                           item={earningsbenefitsItems}
                           key="1"
                         />
+=======
+                  {modificationtypeerror ? (
+                    <div key="0" style={{ color: "red" }}>
+                      ERROR: {modificationtypeerror}
+                    </div>
+                  ) : (
+                    [
+                      modificationtypeloading ? (
+                        <ModificationTypeDataTable item={modificationtypeItems} key="1" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                       ) : (
                         <div key="2" className="loading" />
                       ),
@@ -1163,10 +1317,19 @@ class Master extends Component {
                 </Row>
               </TabPane>
             </TabContent>
+<<<<<<< HEAD
             <TabContent activeTab={this.state.activeTab}>
               <TabPane className="card  fade shadow   show  p-3" tabId="12">
                 <h4 className="font-italic mb-4">
                   <IntlMessages id="deduction.deduction_Info" />
+=======
+
+
+            <TabContent activeTab={this.state.activeTab}>
+              <TabPane className="card  fade shadow   show  p-3" tabId="4">
+                <h4 className="font-italic mb-4">
+                  <IntlMessages id="currenciestypes.currenciestypes_Info" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                 </h4>
                 <div className="row">
                   <div className="col-sm-6"></div>
@@ -1176,11 +1339,16 @@ class Master extends Component {
                       size="lg"
                       value={<IntlMessages id="general.add_new"></IntlMessages>}
                       styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
+<<<<<<< HEAD
                       onClick={this.deductiontoggleModal}
+=======
+                      onClick={this.currenciestypetoggleModal}
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                     />
                   </div>
                 </div>
                 <Row>
+<<<<<<< HEAD
                   {deductionerror ? (
                     <div key="0" style={{ color: "red" }}>
                       ERROR: {deductionerror}
@@ -1189,6 +1357,16 @@ class Master extends Component {
                     [
                       deductionloading ? (
                         <DeductionDataTable item={deductionItems} key="1" />
+=======
+                  {currenciestypeerror ? (
+                    <div key="0" style={{ color: "red" }}>
+                      ERROR: {currenciestypeerror}
+                    </div>
+                  ) : (
+                    [
+                      currenciestypeloading ? (
+                        <CurrenciesTypeDataTable item={currenciestypeItems} key="1" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                       ) : (
                         <div key="2" className="loading" />
                       ),
@@ -1200,7 +1378,10 @@ class Master extends Component {
             <TabContent activeTab={this.state.activeTab}>
               <TabPane className="card  fade shadow   show  p-3" tabId="13">
                 <h4 className="font-italic mb-4">
+<<<<<<< HEAD
                   <IntlMessages id="modificationtypes.modificationtype_Info" />
+=======
+                  <IntlMessages id="section.section_Info" />
                 </h4>
                 <div className="row">
                   <div className="col-sm-6"></div>
@@ -1210,11 +1391,87 @@ class Master extends Component {
                       size="lg"
                       value={<IntlMessages id="general.add_new"></IntlMessages>}
                       styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
-                      onClick={this.modificationtypetoggleModal}
+                      onClick={this.sectiontoggleModal}
                     />
                   </div>
                 </div>
                 <Row>
+                  {sectionerror ? (
+                    <div key="0" style={{ color: "red" }}>
+                      ERROR: {sectionerror}
+                    </div>
+                  ) : (
+                    [
+                      sectionloading ? (
+                        <SectionDataTable item={sectionItems} key="1" />
+                      ) : (
+                        <div key="2" className="loading" />
+                      ),
+                    ]
+                  )}
+                </Row>
+              </TabPane>
+            </TabContent>
+
+            <TabContent activeTab={this.state.activeTab}>
+              <TabPane className="card  fade shadow   show  p-3" tabId="6">
+                <h4 className="font-italic mb-4">
+                  <IntlMessages id="costcenter.costcenter_Info" />
+                </h4>
+                <div className="row">
+                  <div className="col-sm-6"></div>
+                  <div className="col-sm-6">
+                    <Buttons
+                      color="primary"
+                      size="lg"
+                      value={<IntlMessages id="general.add_new"></IntlMessages>}
+                      styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
+                      onClick={this.costcentertoggleModal}
+                    />
+                  </div>
+                </div>
+                <Row>
+                  {costcentererror ? (
+                    <div key="0" style={{ color: "red" }}>
+                      ERROR: {costcentererror}
+                    </div>
+                  ) : (
+                    [
+                      costcenterloading ? (
+                        <CostCenterDataTable item={costcenterItems} key="1" />
+                      ) : (
+                        <div key="2" className="loading" />
+                      ),
+                    ]
+                  )}
+                </Row>
+              </TabPane>
+            </TabContent>
+
+            <TabContent activeTab={this.state.activeTab}>
+              <TabPane className="card  fade shadow   show  p-3" tabId="7">
+                <h4 className="font-italic mb-4">
+                  <IntlMessages id="percentage.percentage_Info" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
+                </h4>
+                <div className="row">
+                  <div className="col-sm-6"></div>
+                  <div className="col-sm-6">
+                    <Buttons
+                      color="primary"
+                      size="lg"
+                      value={<IntlMessages id="general.add_new"></IntlMessages>}
+                      styleClass="float-xs-right  top-right-button btn btn-primary btn-sm float-md-right mr-1 mb-1 align-top"
+<<<<<<< HEAD
+                      onClick={this.modificationtypetoggleModal}
+=======
+                      onClick={this.percentagetoggleModal}
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
+                    />
+                  </div>
+                </div>
+                <Row>
+<<<<<<< HEAD
                   {modificationtypeerror ? (
                     <div key="0" style={{ color: "red" }}>
                       ERROR: {modificationtypeerror}
@@ -1511,6 +1768,16 @@ class Master extends Component {
                           item={gosisubscriptionItems}
                           key="1"
                         />
+=======
+                  {percentageerror ? (
+                    <div key="0" style={{ color: "red" }}>
+                      ERROR: {percentageerror}
+                    </div>
+                  ) : (
+                    [
+                      percentageloading ? (
+                        <PercentageDataTable item={percentageItems} key="1" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                       ) : (
                         <div key="2" className="loading" />
                       ),
@@ -1519,29 +1786,41 @@ class Master extends Component {
                 </Row>
               </TabPane>
             </TabContent>
+
           </Colxx>
         </div>
-
-        <AddNewCountryModal
-          toggleModal={this.toggleModal}
-          modalOpen={countrymodalOpen}
+        <AddNewDeductionModal
+          toggleModal={this.deductiontoggleModal}
+          modalOpen={deductionmodalOpen}
         />
-        <AddNewCityModal
-          toggleModal={this.citytoggleModal}
-          modalOpen={citymodalOpen}
-        />
+       
         <AddNewReligionModal
           toggleModal={this.religiontoggleModal}
           modalOpen={religionmodalOpen}
         />
-        <AddNewevaluationcompentenciesModal
-          toggleModal={this.evaluationcompentenciestoggleModal}
-          modalOpen={evaluationcompentenciesmodalOpen}
+        
+  
+        <AddNewModificationTypeModal
+          toggleModal={this.modificationtypetoggleModal}
+          modalOpen={modificationtypemodalOpen}
         />
-        <AddNewEducationModal
-          toggleModal={this.educationtoggleModal}
-          modalOpen={educationmodalOpen}
+       <AddNewCurrenciesTypeModal
+          toggleModal={this.currenciestypetoggleModal}
+          modalOpen={currenciestypemodalOpen}
         />
+       <AddNewSectionModal
+          toggleModal={this.sectiontoggleModal}
+          modalOpen={sectionmodalOpen}
+        />
+         <AddNewCostCenterModal
+          toggleModal={this.costcentertoggleModal}
+          modalOpen={costcentermodalOpen}
+        />
+         <AddNewPercentageModal
+          toggleModal={this.percentagetoggleModal}
+          modalOpen={percentagemodalOpen}
+        />
+<<<<<<< HEAD
 
         <AddNewDocumenttypeModal
           toggleModal={this.documenttypetoggleModal}
@@ -1611,15 +1890,19 @@ class Master extends Component {
           toggleModal={this.gosisubscriptiontoggleModal}
           modalOpen={gosisubscriptionmodalOpen}
         />
+=======
+        
+        
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
       </Fragment>
     );
   }
 }
 
 const mapStateToProps = ({
-  countryApp,
-  cityApp,
+  
   religionApp,
+<<<<<<< HEAD
   evaluationcompentenciesApp,
   educationTrainingTypeApp,
   documenttypeApp,
@@ -1628,21 +1911,26 @@ const mapStateToProps = ({
   positiondesignationApp,
   sponsorApp,
   earningsbenefitsApp,
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
   deductionApp,
   modificationtypeApp,
   currenciestypeApp,
   sectionApp,
   costcenterApp,
   percentageApp,
+<<<<<<< HEAD
   evaluationtypeApp,
   sessionApp,
   companyscheduleApp,
   gosisubscriptionApp,
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 }) => {
   return {
-    countryApp,
-    cityApp,
+    
     religionApp,
+<<<<<<< HEAD
     evaluationcompentenciesApp,
     educationTrainingTypeApp,
     documenttypeApp,
@@ -1651,23 +1939,29 @@ const mapStateToProps = ({
     positiondesignationApp,
     sponsorApp,
     earningsbenefitsApp,
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     deductionApp,
     modificationtypeApp,
     currenciestypeApp,
     sectionApp,
     costcenterApp,
     percentageApp,
+<<<<<<< HEAD
     evaluationtypeApp,
     sessionApp,
     companyscheduleApp,
     gosisubscriptionApp,
+=======
+    
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
   };
 };
 export default injectIntl(
   connect(mapStateToProps, {
-    getCountryList,
-    getCityList,
+    
     getReligionList,
+<<<<<<< HEAD
     getEvaluationcompentenciesList,
     getEducationList,
     getDocumenttypeList,
@@ -1676,15 +1970,20 @@ export default injectIntl(
     getPositionDesignationList,
     getSponsorList,
     getEarningsBenefitsList,
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
     getDeductionList,
     getModificationTypeList,
     getCurrenciesTypeList,
     getSectionList,
     getCostCenterList,
     getPercentageList,
+<<<<<<< HEAD
     getEvaluationTypeList,
     getSessionList,
     getCompanyScheduleList,
     getGosiSubscriptionList,
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
   })(Master)
 );

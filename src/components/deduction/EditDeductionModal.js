@@ -8,6 +8,7 @@ import {
   ModalFooter,
   Label,
   FormGroup,
+<<<<<<< HEAD
   Col,
   Row,
 } from "reactstrap";
@@ -16,6 +17,10 @@ import {
   FormikReactSelect,
   FormikCustomCheckbox,
 } from "../../containers/form-validations/FormikFields";
+=======
+} from "reactstrap";
+import * as Yup from "yup";
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
 import { Formik, Form, Field } from "formik";
 import IntlMessages from "../../helpers/IntlMessages";
 import { updateDeductionItem } from "../../redux/actions";
@@ -50,11 +55,15 @@ class EditDeductionModal extends Component {
         <ModalHeader toggle={toggleModal}>
           <IntlMessages id="deduction.update-title" />
         </ModalHeader>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
         <Formik
           initialValues={{
             deduction_desc_eng: this.props.endpoint.deduction_desc_eng,
             deduction_desc_arab: this.props.endpoint.deduction_desc_arab,
+<<<<<<< HEAD
             printable: this.props.endpoint.printable,
             show_in_report: this.props.endpoint.show_in_report,
             mb: this.props.endpoint.mb,
@@ -66,10 +75,13 @@ class EditDeductionModal extends Component {
             // credit_gl_id: "",
             //holiday_flag: false,
             //final_set_flag: false,
+=======
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
           }}
           validationSchema={deductionSchema}
           onSubmit={this.handleSubmit}
         >
+<<<<<<< HEAD
           {({
             setFieldValue,
             setFieldTouched,
@@ -173,13 +185,52 @@ class EditDeductionModal extends Component {
                     </FormGroup>
                   </Col>
                 </Row>
+=======
+          {({ values, errors, touched }) => (
+            <Form className="av-tooltip tooltip-label-right">
+              <ModalBody>
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="deduction.deduction_desc_eng" />
+                  </Label>
+                  <Field
+                    className="form-control"
+                    value={values.deduction_desc_eng}
+                    name="deduction_desc_eng"
+                  />
+                  {errors.deduction_desc_eng && touched.deduction_desc_eng && (
+                    <div className="invalid-feedback d-block">
+                      {errors.deduction_desc_eng}
+                    </div>
+                  )}
+                </FormGroup>
+                <FormGroup>
+                  <Label>
+                    <IntlMessages id="deduction.deduction_desc_arab" />
+                  </Label>
+                  <Field
+                    className="form-control"
+                    value={values.deduction_desc_arab}
+                    name="deduction_desc_arab"
+                  />
+                  {errors.deduction_desc_arab && touched.deduction_desc_arab && (
+                    <div className="invalid-feedback d-block">
+                      {errors.deduction_desc_arab}
+                    </div>
+                  )}
+                </FormGroup>
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" onClick={toggleModal}>
                   <IntlMessages id="general.cancel" />
                 </Button>
                 <Button color="primary" type="submit">
+<<<<<<< HEAD
                   <IntlMessages id="general.update" />
+=======
+                  <IntlMessages id="general.save" />
+>>>>>>> 8cc52ae9c904d845c89cf2caecba6273662488dd
                 </Button>
               </ModalFooter>
             </Form>
